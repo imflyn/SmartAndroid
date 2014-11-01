@@ -1,4 +1,4 @@
-package com.flyn.greatwall;
+package com.smartandroid;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
