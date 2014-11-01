@@ -2,12 +2,14 @@ package com.flyn.smartandroid.util;
 
 import android.os.Handler;
 
+import com.flyn.smartandroid.ui.utils.AsyncTask;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class WeakAsyncTask<Params, Progress, Result> extends com.smartandroid.ui.utils.AsyncTask<Params, Progress, Result>
+public abstract class WeakAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result>
 {
 
     private List<WeakReference<Object>> mObjReferences = null;

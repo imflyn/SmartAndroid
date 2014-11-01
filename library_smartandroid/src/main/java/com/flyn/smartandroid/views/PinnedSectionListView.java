@@ -37,7 +37,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 
-import com.smartandroid.BuildConfig;
+import com.flyn.smartandroid.BuildConfig;
+
 
 /**
  * https://github.com/beworker/pinned-section-listview ListView, which is

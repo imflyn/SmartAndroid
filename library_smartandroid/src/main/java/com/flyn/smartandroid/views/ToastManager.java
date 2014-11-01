@@ -3,7 +3,7 @@ package com.flyn.smartandroid.views;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.smartandroid.app.Application;
+import com.flyn.smartandroid.app.Application;
 
 import java.util.Date;
 import java.util.Timer;

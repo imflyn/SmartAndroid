@@ -4,7 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.smartandroid.util.LogManager;
+import com.flyn.smartandroid.util.LogManager;
+
 
 /**
  * 键盘弹起关闭监听的布局

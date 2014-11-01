@@ -23,7 +23,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.smartandroid.R;
+import com.flyn.smartandroid.R;
 
 import java.util.Locale;
 

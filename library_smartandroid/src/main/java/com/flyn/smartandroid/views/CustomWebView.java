@@ -12,6 +12,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.flyn.smartandroid.R;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.app.listeners.OnUpdateListener;
+import com.flyn.smartandroid.util.NetWorkUtil;
+
 public class CustomWebView extends FrameLayout
 {
     private WebView mWebView;

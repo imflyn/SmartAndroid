@@ -11,7 +11,8 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.smartandroid.R;
+import com.flyn.smartandroid.R;
+
 
 /**
  * Created by daimajia on 14-4-30.

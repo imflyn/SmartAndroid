@@ -8,7 +8,6 @@ import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 import com.flyn.smartandroid.util.PackageUtil;
 
 import java.util.ArrayList;

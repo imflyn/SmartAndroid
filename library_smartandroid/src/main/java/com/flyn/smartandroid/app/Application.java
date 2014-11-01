@@ -3,7 +3,6 @@ package com.flyn.smartandroid.app;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
-
 import com.flyn.smartandroid.app.manager.AppManager;
 import com.flyn.smartandroid.sharedpreferences.SharedPreferenceFactory;
 

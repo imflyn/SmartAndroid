@@ -1,6 +1,7 @@
 package com.flyn.smartandroid.util;
 
-import com.smartandroid.app.Application;
+
+import com.flyn.smartandroid.app.Application;
 
 /**
  * @Title DensityUtils

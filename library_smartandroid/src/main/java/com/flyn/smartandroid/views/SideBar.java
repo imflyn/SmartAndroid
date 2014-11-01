@@ -17,9 +17,10 @@ import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
-import com.smartandroid.R;
-import com.smartandroid.util.DensityUtils;
-import com.smartandroid.util.L;
+import com.flyn.smartandroid.R;
+import com.flyn.smartandroid.util.DensityUtils;
+import com.flyn.smartandroid.util.L;
+
 
 public class SideBar extends View
 {

@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.smartandroid.app.Application;
+import com.flyn.smartandroid.app.Application;
 
 import java.io.Serializable;
 import java.lang.reflect.Constructor;

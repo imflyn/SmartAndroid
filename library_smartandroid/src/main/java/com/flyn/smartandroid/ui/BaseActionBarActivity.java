@@ -13,8 +13,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.smartandroid.app.Application;
-import com.smartandroid.app.manager.ActivityManager;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.app.manager.ActivityManager;
 
 import java.lang.reflect.Constructor;
 

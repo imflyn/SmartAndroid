@@ -9,8 +9,8 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.smartandroid.R;
-import com.smartandroid.views.NumberProgressBar.ProgressTextVisibility;
+import com.flyn.smartandroid.R;
+
 
 public class WebViewToolBar extends LinearLayout implements OnClickListener
 {
@@ -56,7 +56,7 @@ public class WebViewToolBar extends LinearLayout implements OnClickListener
         addView(view);
 
         pb_loading = (NumberProgressBar) view.findViewById(R.id.pb_loading);
-        pb_loading.setProgressTextVisibility(ProgressTextVisibility.Invisible);
+        pb_loading.setProgressTextVisibility(NumberProgressBar.ProgressTextVisibility.Invisible);
         iv_webview_back = (ImageView) view.findViewById(R.id.iv_webview_back);
         iv_webview_refresh = (ImageView) view.findViewById(R.id.iv_webview_refresh);
         iv_webview_forward = (ImageView) view.findViewById(R.id.iv_webview_forward);

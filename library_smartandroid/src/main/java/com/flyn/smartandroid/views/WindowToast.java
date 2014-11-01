@@ -1,6 +1,5 @@
 package com.flyn.smartandroid.views;
 
-import android.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -11,7 +10,10 @@ import android.view.Gravity;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.smartandroid.util.DensityUtils;
+import com.flyn.smartandroid.R;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.util.DensityUtils;
+
 
 public class WindowToast
 {
@@ -20,7 +22,7 @@ public class WindowToast
     private static WindowToast window;
     private TextView tv;
     private WindowManager mWindowManager;
-    private int mBackGroundResourceId = com.smartandroid.R.drawable.toast_bg;
+    private int mBackGroundResourceId = R.drawable.toast_bg;
     private int mBackGroundColor = 0;
     private Handler mHandler;
     private Context mContext;
@@ -49,7 +51,7 @@ public class WindowToast
             throw new RuntimeException("Cannot instantiate outside UI thread.");
         }
 
-        mContext = com.smartandroid.app.Application.getInstance();
+        mContext = Application.getInstance();
 
         mHandler = new Handler()
         {
@@ -119,7 +121,7 @@ public class WindowToast
                     .LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
             params.format = PixelFormat.TRANSLUCENT;
             params.verticalMargin = 0.17f;
-            params.windowAnimations = R.style.Animation_Toast;
+            params.windowAnimations = android.R.style.Animation_Toast;
             mWindowManager.addView(tv, params);
             mHandler.sendEmptyMessageDelayed(TOAST_CANCEL, 2000);
         } else

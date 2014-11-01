@@ -8,8 +8,8 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 
-import com.smartandroid.app.Application;
-import com.smartandroid.app.manager.ActivityManager;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.app.manager.ActivityManager;
 
 import java.lang.reflect.Constructor;
 

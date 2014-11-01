@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smartandroid.R;
-import com.smartandroid.app.Application;
-import com.smartandroid.util.DensityUtils;
+import com.flyn.smartandroid.R;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.util.DensityUtils;
+
 
 /**
  * 顶部toast

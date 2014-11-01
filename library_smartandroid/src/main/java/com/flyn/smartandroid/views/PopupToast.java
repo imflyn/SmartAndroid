@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.PopupWindow;
 
-import com.smartandroid.app.Application;
-import com.smartandroid.util.LogManager;
+import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.util.LogManager;
+
 
 public class PopupToast
 {
