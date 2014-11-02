@@ -20,15 +20,5 @@ allprojects {
     }
 }
 
-tasks.withType(org.gradle.api.tasks.compile.JavaCompile)
-{
-    options.encoding = "UTF-8"
-}
-
-
-tasks.withType(org.gradle.api.tasks.compile.GroovyCompile)
-{
-    options.encoding = "UTF-8"
-}
 
 
