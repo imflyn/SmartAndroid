@@ -20,7 +20,7 @@ public abstract class UIPresenter
 {
     protected UIHelper mUIHelper;
     protected Handler mHandler;
-    private Activity mActivity;
+    protected Activity mActivity;
     private View mRootView;
 
     protected UIPresenter(Activity activity)
