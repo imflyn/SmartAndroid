@@ -1,3 +1,4 @@
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -12,8 +13,22 @@ buildscript {
     }
 }
 
+
 allprojects {
     repositories {
         jcenter()
     }
 }
+
+tasks.withType(org.gradle.api.tasks.compile.JavaCompile)
+{
+    options.encoding = "UTF-8"
+}
+
+
+tasks.withType(org.gradle.api.tasks.compile.GroovyCompile)
+{
+    options.encoding = "UTF-8"
+}
+
+

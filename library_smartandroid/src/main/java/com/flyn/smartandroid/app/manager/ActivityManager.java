@@ -34,7 +34,7 @@ public class ActivityManager extends AppManager
     }
 
     /**
-     * 添加Activity到堆栈
+     * push ctivity to stack top
      */
     public void addActivity(Activity activity)
     {
