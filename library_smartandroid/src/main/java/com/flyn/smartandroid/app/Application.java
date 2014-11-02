@@ -1,6 +1,7 @@
 package com.flyn.smartandroid.app;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 
 import com.flyn.smartandroid.app.manager.AppManager;
@@ -40,7 +41,7 @@ public class Application extends android.app.Application
 
     private void init()
     {
-        this.backgroundHandler = new Handler();
+        this.backgroundHandler = new Handler(Looper.getMainLooper());
         this.backgroundExecutor = Executors.newCachedThreadPool(new ThreadFactory()
         {
             private AtomicInteger atomicInteger = new AtomicInteger();
@@ -67,7 +68,7 @@ public class Application extends android.app.Application
         this.mRunning = true;
     }
 
-    public void addManager(AppManager appManager)
+    public synchronized void addManager(AppManager appManager)
     {
         this.mAppManagerList.add(appManager);
     }
@@ -81,7 +82,7 @@ public class Application extends android.app.Application
         SharedPreferenceFactory.clear();
     }
 
-    public void close()
+    public synchronized void close()
     {
         mRunning = false;
         clear();

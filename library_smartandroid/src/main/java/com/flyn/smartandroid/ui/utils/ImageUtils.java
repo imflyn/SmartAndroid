@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.util;
+package com.flyn.smartandroid.ui.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;

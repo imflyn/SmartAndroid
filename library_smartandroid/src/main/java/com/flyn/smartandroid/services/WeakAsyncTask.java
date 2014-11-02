@@ -1,8 +1,6 @@
-package com.flyn.smartandroid.util;
+package com.flyn.smartandroid.services;
 
 import android.os.Handler;
-
-import com.flyn.smartandroid.ui.utils.AsyncTask;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

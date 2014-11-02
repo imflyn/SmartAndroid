@@ -12,7 +12,7 @@ public class SharedPreferenceFactory
     private static ConcurrentHashMap<Class<? extends AbstractSharedPreference>, AbstractSharedPreference> cache = new ConcurrentHashMap<Class<?
             extends AbstractSharedPreference>, AbstractSharedPreference>();
 
-    public static <T extends AbstractSharedPreference> AbstractSharedPreference getSharedPreference(Context context, Class<T> clazz)
+    public static <T extends AbstractSharedPreference> T getSharedPreference(Context context, Class<T> clazz)
     {
         if (context == null || clazz == null)
         {
@@ -38,7 +38,7 @@ public class SharedPreferenceFactory
                 }
             }
         }
-        return asp;
+        return (T) asp;
     }
 
     public static void clear()

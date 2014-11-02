@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
-import com.flyn.smartandroid.util.DensityUtils;
+import com.flyn.smartandroid.ui.utils.DensityUtils;
 
 
 /**

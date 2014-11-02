@@ -423,8 +423,12 @@ public class IntentUtils
      *              <p/>
      *              <p/>
      *              <p/>
+     *              <p/>
+     *              <p/>
      *
      *                                                                                                                                             // Select only from users with emails
+     *              <p/>
+     *              <p/>
      *              <p/>
      *              <p/>
      *              <p/>
@@ -436,8 +440,12 @@ public class IntentUtils
      *              <p/>
      *              <p/>
      *              <p/>
+     *              <p/>
+     *              <p/>
      *
      *                                                                                                                                             // Select only from users with phone numbers on pre Eclair devices
+     *              <p/>
+     *              <p/>
      *              <p/>
      *              <p/>
      *              <p/>
@@ -449,14 +457,20 @@ public class IntentUtils
      *              <p/>
      *              <p/>
      *              <p/>
+     *              <p/>
+     *              <p/>
      *
      *                                                                                                                                             // Select only from users with phone numbers on devices with Eclair and higher
      *              <p/>
      *              <p/>
      *              <p/>
      *              <p/>
+     *              <p/>
+     *              <p/>
      *
      *                                                                                                                                             IntentUtils.pickContact(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+     *              <p/>
+     *              <p/>
      *              <p/>
      *              <p/>
      *              <p/>

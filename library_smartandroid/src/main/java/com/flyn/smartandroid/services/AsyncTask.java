@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.ui.utils;
+package com.flyn.smartandroid.services;
 
 import android.os.Handler;
 import android.os.Message;
@@ -380,8 +380,8 @@ public abstract class AsyncTask<Params, Progress, Result>
      * @param params The parameters of the task.
      * @return This instance of UserTask.
      * @throws IllegalStateException If {@link #getStatus()} returns either
-     *                               {@link com.smartandroid.ui.utils.AsyncTask.Status#RUNNING} or
-     *                               {@link com.smartandroid.ui.utils.AsyncTask.Status#FINISHED}.
+     *                               {@link AsyncTask.Status#RUNNING} or
+     *                               {@link AsyncTask.Status#FINISHED}.
      */
     public final AsyncTask<Params, Progress, Result> execute(Params... params)
     {

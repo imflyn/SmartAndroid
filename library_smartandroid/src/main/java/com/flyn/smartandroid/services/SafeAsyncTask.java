@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.ui.utils;
+package com.flyn.smartandroid.services;
 
 public abstract class SafeAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result>
 {

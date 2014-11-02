@@ -18,7 +18,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.flyn.smartandroid.R;
-import com.flyn.smartandroid.util.DensityUtils;
+import com.flyn.smartandroid.ui.utils.DensityUtils;
 import com.flyn.smartandroid.util.L;
 
 
