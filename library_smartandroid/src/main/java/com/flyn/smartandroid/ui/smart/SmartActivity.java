@@ -43,7 +43,7 @@ public abstract class SmartActivity extends FragmentActivity
 
         try
         {
-            Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(Activity.class);
+            Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(FragmentActivity.class);
             constructor.setAccessible(true);
             uiPresenter = constructor.newInstance(this);
         } catch (Exception e)

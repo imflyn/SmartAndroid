@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-			<color name="webview_bar">#e8ebeb</color>
-			<color name="holo_red_light">#FF4444</color>
-			<color name="holo_red_dark">#CC0000</color>
-			<color name="holo_green_light">#99CC00</color>
-			<color name="holo_green_dark">#669900</color>
-			<color name="holo_orange_light">#FFBB33</color>
-			<color name="holo_orange_dark">#FF8800</color>
-			<color name="holo_blue_light">#ff33b5e5</color>
-			<color name="holo_blue_dark">#0099CC</color>
-			<color name="holo_purse_light">#AA66CC</color>
-			<color name="holo_purse_dark">#9933CC</color>
-			<color name="material_blue_100">#c5cae9</color>
-			<color name="material_blue_500">#3f51b5</color>
-			<color name="material_blue_700">#303f9f</color>
-			<color name="material_pink_100">#ff80ab</color>
-			<color name="material_pink_200">#ff4081</color>
-			<color name="material_pink_400">#f50057</color>
-			<color name="material_green_A100">#a2f78d</color>
-			<color name="material_green_A200">#5af158</color>
-
+    <color name="webview_bar">#e8ebeb</color>
+    <color name="holo_red_light">#FF4444</color>
+    <color name="holo_red_dark">#CC0000</color>
+    <color name="holo_green_light">#99CC00</color>
+    <color name="holo_green_dark">#669900</color>
+    <color name="holo_orange_light">#FFBB33</color>
+    <color name="holo_orange_dark">#FF8800</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_blue_dark">#0099CC</color>
+    <color name="holo_purse_light">#AA66CC</color>
+    <color name="holo_purse_dark">#9933CC</color>
+    <color name="material_indigo_100">#c5cae9</color>
+    <color name="material_indigo_500">#3f51b5</color>
+    <color name="material_indigo_700">#303f9f</color>
+    <color name="material_pink_100">#ff80ab</color>
+    <color name="material_pink_200">#ff4081</color>
+    <color name="material_pink_400">#f50057</color>
+    <color name="material_green_A100">#a2f78d</color>
+    <color name="material_green_A200">#5af158</color>
+    <color name="material_blue_100">#BBDEFB</color>
+    <color name="material_blue_500">#2196F3</color>
+    <color name="material_blue_700">#1976d2</color>
+    <color name="material_text_color_light">#8a000000</color>
 </resources>

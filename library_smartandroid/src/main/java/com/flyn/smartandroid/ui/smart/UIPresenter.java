@@ -1,11 +1,11 @@
 package com.flyn.smartandroid.ui.smart;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +20,10 @@ public abstract class UIPresenter
 {
     protected UIHelper mUIHelper;
     protected Handler mHandler;
-    protected Activity mActivity;
+    protected FragmentActivity mActivity;
     private View mRootView;
 
-    protected UIPresenter(Activity activity)
+    protected UIPresenter(FragmentActivity activity)
     {
         this.mActivity = activity;
         mUIHelper = new UIHelper();
