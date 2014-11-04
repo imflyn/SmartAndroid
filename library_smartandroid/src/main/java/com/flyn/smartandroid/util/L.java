@@ -108,7 +108,7 @@ public final class L
             {
                 continue;
             }
-            return "[" + st.getFileName() + "] line:" + st.getLineNumber() + "==";
+            return "CurrentThread:" + Thread.currentThread().getName() + "[" + st.getFileName() + "] line:" + st.getLineNumber() + "==";
         }
 
         return null;
