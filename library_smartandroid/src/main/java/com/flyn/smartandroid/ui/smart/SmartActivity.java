@@ -29,10 +29,8 @@ public abstract class SmartActivity extends FragmentActivity
         mHandler = Application.getInstance().getHandler();
         mContext = this;
         initUIPresenter();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onCreate(savedInstanceState);
-        }
+        this.uiPresenter.onCreate(savedInstanceState);
+        initLayout();
         findViews();
         setListener();
         initView(savedInstanceState);
@@ -45,54 +43,41 @@ public abstract class SmartActivity extends FragmentActivity
 
         try
         {
-            Constructor<? extends UIPresenter> constructor = clz.getConstructor(Activity.class);
+            Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(Activity.class);
+            constructor.setAccessible(true);
             uiPresenter = constructor.newInstance(this);
         } catch (Exception e)
         {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onSaveInstanceState(outState);
-        }
+        this.uiPresenter.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
         super.onRestoreInstanceState(savedInstanceState);
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onRestoreInstanceState(savedInstanceState);
-        }
+        this.uiPresenter.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
     protected void onStart()
     {
         super.onStart();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
     protected void onResume()
     {
         super.onResume();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
@@ -109,10 +94,7 @@ public abstract class SmartActivity extends FragmentActivity
     protected void onStop()
     {
         super.onStop();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
@@ -120,52 +102,34 @@ public abstract class SmartActivity extends FragmentActivity
     {
         ActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onDestory();
-        }
+        this.uiPresenter.onDestory();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
         super.onConfigurationChanged(newConfig);
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onConfigurationChanged(newConfig);
-        }
+        this.uiPresenter.onConfigurationChanged(newConfig);
     }
 
     protected void initLayout()
     {
-        if (null != uiPresenter)
-        {
-            setContentView(uiPresenter.initLayout());
-        }
+        setContentView(uiPresenter.initLayout());
     }
 
     protected void findViews()
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.findViews();
-        }
+        uiPresenter.findViews();
     }
 
     protected void initView(Bundle savedInstanceState)
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.initView(savedInstanceState);
-        }
+        uiPresenter.initView(savedInstanceState);
     }
 
     protected void setListener()
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.setListener();
-        }
+        uiPresenter.setListener();
     }
 
     protected abstract Class<? extends UIPresenter> getUIPresenterClz();

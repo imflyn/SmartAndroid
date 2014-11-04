@@ -27,6 +27,7 @@ public abstract class SmartFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        initUIPresenter();
         return uiPresenter.initLayout(inflater, container, savedInstanceState);
     }
 
@@ -36,17 +37,13 @@ public abstract class SmartFragment extends Fragment
         super.onCreate(savedInstanceState);
         mHandler = Application.getInstance().getHandler();
         mContext = getActivity();
-        initUIPresenter();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onCreate(savedInstanceState);
-        }
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+        this.uiPresenter.onCreate(savedInstanceState);
         findViews();
         setListener();
         initView(savedInstanceState);
@@ -75,94 +72,64 @@ public abstract class SmartFragment extends Fragment
     public void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onSaveInstanceState(outState);
-        }
+        this.uiPresenter.onSaveInstanceState(outState);
     }
 
     @Override
     public void onStart()
     {
         super.onStart();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
     public void onResume()
     {
         super.onResume();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
     public void onPause()
     {
         super.onPause();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
     public void onStop()
     {
         super.onStop();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onStop();
-        }
+        this.uiPresenter.onStop();
     }
 
     @Override
     public void onDestroy()
     {
         super.onDestroy();
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onDestory();
-        }
+        this.uiPresenter.onDestory();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
         super.onConfigurationChanged(newConfig);
-        if (null != uiPresenter)
-        {
-            this.uiPresenter.onConfigurationChanged(newConfig);
-        }
+        this.uiPresenter.onConfigurationChanged(newConfig);
     }
 
     protected void findViews()
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.findViews();
-        }
+        uiPresenter.findViews();
     }
 
     protected void initView(Bundle savedInstanceState)
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.initView(savedInstanceState);
-        }
+        uiPresenter.initView(savedInstanceState);
     }
 
     protected void setListener()
     {
-        if (null != uiPresenter)
-        {
-            uiPresenter.setListener();
-        }
+        uiPresenter.setListener();
     }
 
     protected abstract Class<? extends UIPresenter> getUIPresenterClz();
