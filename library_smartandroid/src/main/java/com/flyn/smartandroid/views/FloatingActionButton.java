@@ -212,7 +212,8 @@ public class FloatingActionButton extends ImageButton
         canvas.drawOval(innerStrokeRect, paint);
 
         // inner top
-        paint.setShader(new LinearGradient(innerStrokeRect.centerX(), innerStrokeRect.top, innerStrokeRect.centerX(), innerStrokeRect.bottom, new int[]{Color.WHITE, HALF_TRANSPARENT_WHITE, Color.TRANSPARENT}, new float[]{0f, 0.2f, 1f}, TileMode.CLAMP));
+        paint.setShader(new LinearGradient(innerStrokeRect.centerX(), innerStrokeRect.top, innerStrokeRect.centerX(), innerStrokeRect.bottom,
+                new int[]{Color.WHITE, HALF_TRANSPARENT_WHITE, Color.TRANSPARENT}, new float[]{0f, 0.2f, 1f}, TileMode.CLAMP));
         paint.setAlpha(opacityToAlpha(0.8f));
         canvas.drawOval(innerStrokeRect, paint);
 

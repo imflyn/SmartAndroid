@@ -1,14 +1,11 @@
 package com.flyn.smartandroid.ui.smart;
 
+import android.app.Activity;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.flyn.smartandroid.app.Application;
 
@@ -18,85 +15,66 @@ import com.flyn.smartandroid.app.Application;
  */
 public abstract class UIPresenter
 {
-    protected UIHelper mUIHelper;
+    protected Activity mContext;
     protected Handler mHandler;
-    protected FragmentActivity mActivity;
-    private View mRootView;
+    protected View mRootView;
+    protected UIHelper uiHelper;
 
-    protected UIPresenter(FragmentActivity activity)
+    protected UIPresenter(View rootView)
     {
-        this.mActivity = activity;
-        mUIHelper = new UIHelper();
-        mUIHelper.setDefaultLoadingDialogFragment(defaultLoadingDialog());
-        mHandler = Application.getInstance().getHandler();
+        this.mContext = (Activity) rootView.getContext();
+        this.mRootView = rootView;
+        this.mHandler = Application.getInstance().getHandler();
     }
 
-    public void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState)
     {
-        mUIHelper.onCreate(savedInstanceState);
+
     }
 
-    public void onStart()
+    protected void onStart()
     {
-        mUIHelper.onStart();
+
     }
 
-    public void onResume()
+    protected void onResume()
     {
-        mUIHelper.onResume();
+
     }
 
-    public void onPause()
+    protected void onPause()
     {
-        mUIHelper.onPause();
+
     }
 
-    public void onStop()
+    protected void onStop()
     {
-        mUIHelper.onStop();
+
     }
 
-    public void onDestory()
+    protected void onDestory()
     {
-        mUIHelper.onDestory();
+
     }
 
     protected void onSaveInstanceState(Bundle outState)
     {
-        mUIHelper.onSaveInstanceState(outState);
+
     }
 
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
-        mUIHelper.onRestoreInstanceState(savedInstanceState);
     }
 
     public void onConfigurationChanged(Configuration newConfig)
     {
-        mUIHelper.onConfigurationChanged(newConfig);
+
     }
 
-    protected View initLayout()
+    protected void setUiHelper(UIHelper uiHelper)
     {
-        if (null == mRootView)
-        {
-            mRootView = LayoutInflater.from(mActivity).inflate(layoutId(), null);
-            mRootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        }
-        return mRootView;
+        this.uiHelper = uiHelper;
     }
-
-    protected View initLayout(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
-        if (null == mRootView)
-        {
-            mRootView = inflater.inflate(layoutId(), container, false);
-            mRootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        }
-        return mRootView;
-    }
-
-    protected abstract int layoutId();
 
     protected abstract void findViews();
 
@@ -105,8 +83,13 @@ public abstract class UIPresenter
     protected abstract void setListener();
 
 
-    protected Class<? extends DialogFragment> defaultLoadingDialog()
+    public String getString(int resId)
     {
-        return null;
+        return mContext.getString(resId);
+    }
+
+    public Drawable getDrawable(int resId)
+    {
+        return mContext.getResources().getDrawable(resId);
     }
 }

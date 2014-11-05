@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -22,21 +23,33 @@ public abstract class SmartFragment extends Fragment
     protected Activity mContext;
     protected Handler mHandler;
     protected UIPresenter uiPresenter;
+    protected UIHelper mUIHelper;
     private View mRootView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        initUIPresenter();
-        return uiPresenter.initLayout(inflater, container, savedInstanceState);
+        if (null == mRootView)
+        {
+            mRootView = inflater.inflate(layoutId(), container, false);
+            initUIPresenter();
+            this.uiPresenter.onCreate(savedInstanceState);
+            this.uiPresenter.setUiHelper(mUIHelper);
+        }
+        return mRootView;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        mHandler = Application.getInstance().getHandler();
         mContext = getActivity();
+        mHandler = Application.getInstance().getHandler();
+        mUIHelper = new UIHelper();
+        mUIHelper.setDefaultLoadingDialogFragment(defaultLoadingDialog());
+        mUIHelper.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -60,8 +73,8 @@ public abstract class SmartFragment extends Fragment
 
         try
         {
-            Constructor<? extends UIPresenter> constructor = clz.getConstructor(Activity.class);
-            uiPresenter = constructor.newInstance(this);
+            Constructor<? extends UIPresenter> constructor = clz.getConstructor(View.class);
+            uiPresenter = constructor.newInstance(mRootView);
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -73,27 +86,32 @@ public abstract class SmartFragment extends Fragment
     {
         super.onSaveInstanceState(outState);
         this.uiPresenter.onSaveInstanceState(outState);
+        mUIHelper.onSaveInstanceState(outState);
     }
+
 
     @Override
     public void onStart()
     {
         super.onStart();
-        this.uiPresenter.onStop();
+        this.uiPresenter.onStart();
+        mUIHelper.onStart();
     }
 
     @Override
     public void onResume()
     {
         super.onResume();
-        this.uiPresenter.onStop();
+        this.uiPresenter.onResume();
+        mUIHelper.onResume();
     }
 
     @Override
     public void onPause()
     {
         super.onPause();
-        this.uiPresenter.onStop();
+        this.uiPresenter.onPause();
+        mUIHelper.onPause();
     }
 
     @Override
@@ -101,6 +119,7 @@ public abstract class SmartFragment extends Fragment
     {
         super.onStop();
         this.uiPresenter.onStop();
+        mUIHelper.onStop();
     }
 
     @Override
@@ -108,6 +127,7 @@ public abstract class SmartFragment extends Fragment
     {
         super.onDestroy();
         this.uiPresenter.onDestory();
+        mUIHelper.onDestory();
     }
 
     @Override
@@ -115,7 +135,10 @@ public abstract class SmartFragment extends Fragment
     {
         super.onConfigurationChanged(newConfig);
         this.uiPresenter.onConfigurationChanged(newConfig);
+        mUIHelper.onConfigurationChanged(newConfig);
     }
+
+    protected abstract int layoutId();
 
     protected void findViews()
     {
@@ -133,6 +156,11 @@ public abstract class SmartFragment extends Fragment
     }
 
     protected abstract Class<? extends UIPresenter> getUIPresenterClz();
+
+    protected Class<? extends DialogFragment> defaultLoadingDialog()
+    {
+        return null;
+    }
 
     public void refresh()
     {

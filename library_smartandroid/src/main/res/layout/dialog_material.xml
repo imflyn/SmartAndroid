@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ripple="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#55000000"
-    android:padding="24dp" >
+                xmlns:ripple="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#55000000"
+                android:padding="24dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/bg_material_dialog"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/ll_head"
@@ -21,7 +21,7 @@
             android:paddingBottom="16dip"
             android:paddingLeft="24dip"
             android:paddingRight="24dip"
-            android:paddingTop="24dip" >
+            android:paddingTop="24dip">
 
             <TextView
                 android:id="@+id/tv_title"
@@ -30,7 +30,7 @@
                 android:layout_marginBottom="16dp"
                 android:gravity="left|top"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#000" />
+                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/tv_message"
@@ -40,25 +40,25 @@
                 android:gravity="left|top"
                 android:maxHeight="240dip"
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="@color/material_text_color_light" />
+                android:textColor="@color/material_text_color_light"/>
         </LinearLayout>
 
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:scrollbars="none" >
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/ll_items"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dip"
-				android:paddingBottom="8dip"
                 android:focusable="true"
                 android:maxHeight="260dip"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:paddingBottom="8dip"
+                android:visibility="gone">
             </LinearLayout>
         </ScrollView>
 
@@ -68,7 +68,7 @@
             android:layout_height="48dip"
             android:layout_marginRight="16dip"
             android:gravity="right"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <com.flyn.smartandroid.views.RippleView
                 android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
                 ripple:rv_centered="true"
                 ripple:rv_color="@color/material_blue_300"
                 ripple:rv_rippleDuration="300"
-                ripple:rv_type="simpleRipple" >
+                ripple:rv_type="simpleRipple">
 
                 <Button
                     android:id="@+id/btn_cancel"
@@ -90,7 +90,7 @@
                     android:text="@string/string_materialdialog_disagree"
                     android:textColor="@color/material_text_color_light"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </com.flyn.smartandroid.views.RippleView>
 
             <com.flyn.smartandroid.views.RippleView
@@ -100,7 +100,7 @@
                 ripple:rv_centered="true"
                 ripple:rv_color="@color/material_blue_300"
                 ripple:rv_rippleDuration="300"
-                ripple:rv_type="simpleRipple" >
+                ripple:rv_type="simpleRipple">
 
                 <Button
                     android:id="@+id/btn_accpet"
@@ -112,14 +112,14 @@
                     android:text="@string/string_materialdialog_agree"
                     android:textColor="@color/material_blue_500"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </com.flyn.smartandroid.views.RippleView>
         </LinearLayout>
 
         <View
             android:layout_width="1px"
             android:layout_height="8dip"
-            android:background="@null" />
+            android:background="@null"/>
     </LinearLayout>
 
 </RelativeLayout>
