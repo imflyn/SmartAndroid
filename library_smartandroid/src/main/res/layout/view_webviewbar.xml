@@ -8,8 +8,7 @@
         android:id="@+id/pb_loading"
         style="@style/NumberProgressBar_Relax_Blue"
         android:layout_width="fill_parent"
-        android:layout_height="5px"
-        >
+        android:layout_height="5px">
     </com.flyn.smartandroid.views.NumberProgressBar>
 
     <LinearLayout

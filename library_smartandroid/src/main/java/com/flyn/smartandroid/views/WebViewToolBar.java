@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.flyn.smartandroid.R;
+import com.flyn.smartandroid.util.IntentUtils;
 
 
 public class WebViewToolBar extends LinearLayout implements OnClickListener
@@ -81,24 +82,25 @@ public class WebViewToolBar extends LinearLayout implements OnClickListener
             return;
         }
 
-        // switch (v.getId())
-        // {
-        // case R.id.iv_webview_back:
-        // if (mWebView.canGoBack())
-        // mWebView.goBack();
-        // break;
-        // case R.id.iv_webview_refresh:
-        // mWebView.reload();
-        // break;
-        // case R.id.iv_webview_forward:
-        // if (mWebView.canGoForward())
-        // mWebView.goForward();
-        // break;
-        // case R.id.iv_webview_browser:
-        // mContext.startActivity(IntentUtils.openLink(mWebView.getUrl()));
-        // break;
-        //
-        // }
+        if (v.getId() == R.id.iv_webview_back)
+        {
+            if (mWebView.canGoBack())
+            {
+                mWebView.goBack();
+            }
+        } else if (v.getId() == R.id.iv_webview_refresh)
+        {
+            mWebView.reload();
+        } else if (v.getId() == R.id.iv_webview_forward)
+        {
+            if (mWebView.canGoForward())
+            {
+                mWebView.goForward();
+            }
+        } else if (v.getId() == R.id.iv_webview_browser)
+        {
+            mContext.startActivity(IntentUtils.openLink(mWebView.getUrl()));
+        }
     }
 
     public void setProgressNumber(int progress)

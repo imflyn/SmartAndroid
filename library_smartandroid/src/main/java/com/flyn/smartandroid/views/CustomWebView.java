@@ -2,6 +2,7 @@ package com.flyn.smartandroid.views;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,17 +15,17 @@ import android.widget.TextView;
 
 import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
-import com.flyn.smartandroid.app.listeners.OnUpdateListener;
 import com.flyn.smartandroid.util.NetWorkUtil;
 
 public class CustomWebView extends FrameLayout
 {
+    private WebViewToolBar webViewToolBar;
     private WebView mWebView;
     private TextView tv_reload;
     private LinearLayout ll_nonet;
     private String mUrl;
-
-    private OnUpdateListener<Integer> onUpdateListener;
+    private WebChromeClient webChromeClient;
+    private WebViewListener webViewListener;
 
     public CustomWebView(Context context)
     {
@@ -61,6 +62,8 @@ public class CustomWebView extends FrameLayout
         addView(view);
 
         mWebView = (WebView) findViewById(R.id.wv_content);
+        webViewToolBar = (WebViewToolBar) findViewById(R.id.webview_toolbar);
+        webViewToolBar.setWebView(mWebView);
         tv_reload = (TextView) findViewById(R.id.tv_reload);
         ll_nonet = (LinearLayout) findViewById(R.id.ll_nonet);
 
@@ -122,23 +125,38 @@ public class CustomWebView extends FrameLayout
             }
         });
 
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setAllowFileAccess(true);
+        mWebView.getSettings().setUseWideViewPort(true);
+        mWebView.getSettings().setLoadWithOverviewMode(true);
+
         mWebView.setWebChromeClient(new WebChromeClient()
         {
             @Override
             public void onProgressChanged(WebView view, int newProgress)
             {
                 super.onProgressChanged(view, newProgress);
-                if (null != onUpdateListener)
+
+                webViewToolBar.setProgressNumber(newProgress);
+
+                if (null != webChromeClient)
                 {
-                    onUpdateListener.onUpdate(newProgress);
+                    webChromeClient.onProgressChanged(view, newProgress);
+                }
+
+            }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title)
+            {
+                super.onReceivedTitle(view, title);
+                if (null != webViewListener)
+                {
+                    webViewListener.onReceivedTitle(title);
                 }
             }
+
         });
-
-        mWebView.getSettings().setJavaScriptEnabled(true);
-
-        mWebView.getSettings().setUseWideViewPort(true);
-        mWebView.getSettings().setLoadWithOverviewMode(true);
 
     }
 
@@ -146,6 +164,50 @@ public class CustomWebView extends FrameLayout
     {
         this.mUrl = url;
         this.mWebView.loadUrl(url);
+    }
+
+    public void onResume()
+    {
+        if (Build.VERSION.SDK_INT >= 11)
+        {
+            mWebView.onResume();
+        } else
+        {
+            try
+            {
+                mWebView.getClass().getMethod("onResume").invoke(mWebView, (Object[]) null);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void onPause()
+    {
+
+        if (Build.VERSION.SDK_INT >= 11)
+        {
+            mWebView.onPause();
+        } else
+        {
+            try
+            {
+                mWebView.getClass().getMethod("onPause").invoke(mWebView, (Object[]) null);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void destory()
+    {
+        mWebView.stopLoading();
+        mWebView.loadUrl("about:blank");
+        mWebView.removeAllViews();
+        removeAllViews();
     }
 
     public void showErrorWebPage()
@@ -158,9 +220,25 @@ public class CustomWebView extends FrameLayout
         ll_nonet.setVisibility(View.GONE);
     }
 
-    public void setOnUpdateListener(OnUpdateListener<Integer> onUpdateListener)
+    public void hiddenWebViewToolBar()
     {
-        this.onUpdateListener = onUpdateListener;
+        this.webViewToolBar.setVisibility(View.GONE);
     }
+
+    public void showWebViewToolBar()
+    {
+        this.webViewToolBar.setVisibility(View.VISIBLE);
+    }
+
+    public WebViewToolBar getWebViewToolBar()
+    {
+        return this.webViewToolBar;
+    }
+
+    public interface WebViewListener
+    {
+        void onReceivedTitle(String title);
+    }
+
 
 }

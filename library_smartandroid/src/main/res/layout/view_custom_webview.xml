@@ -1,46 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@android:color/white"
-             android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
 
-    <WebView
-        android:id="@+id/wv_content"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:background="@null">
 
-    <LinearLayout
-        android:id="@+id/ll_nonet"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
+        <WebView
+            android:id="@+id/wv_content"
             android:layout_width="fill_parent"
-            android:layout_height="0px"
-            android:layout_weight="2"
-            android:src="@drawable/ic_wifi_connection"/>
+            android:layout_height="fill_parent"/>
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/ll_nonet"
             android:layout_width="fill_parent"
-            android:layout_height="0px"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/can_not_open_webpage"
-            android:textColor="@android:color/black"
-            android:textSize="22dip"/>
+            android:layout_height="fill_parent"
+            android:background="@android:color/black"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/tv_reload"
-            android:layout_width="fill_parent"
-            android:layout_height="0px"
-            android:layout_weight="1"
-            android:gravity="top|center_horizontal"
-            android:text="@string/reload"
-            android:textColor="#1687f7"
-            android:textSize="17dip"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="2"
+                android:background="@null"
+                android:src="@drawable/ic_wifi_connection"/>
 
-</FrameLayout>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/can_not_open_webpage"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/tv_reload"
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:gravity="top|center_horizontal"
+                android:text="@string/reload"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <com.android.lzdevstructrue.widget.WebViewToolBar
+        android:id="@+id/webview_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@null"/>
+
+</LinearLayout>
