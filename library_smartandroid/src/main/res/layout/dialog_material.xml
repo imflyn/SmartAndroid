@@ -1,103 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:ripple="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#55000000"
-                android:padding="24dp">
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55000000"
+    android:padding="24dp" >
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:background="@drawable/bg_material_dialog"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical"
-
-        >
+        android:background="@drawable/bg_material_dialog"
+        android:orientation="vertical" >
 
         <LinearLayout
-            android:layout_height="fill_parent"
+            android:id="@+id/ll_head"
             android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="vertical"
+            android:paddingBottom="16dip"
             android:paddingLeft="24dip"
             android:paddingRight="24dip"
-            android:paddingTop="24dip"
-            android:paddingBottom="16dip"
-            >
+            android:paddingTop="24dip" >
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:gravity="left"
                 android:layout_marginBottom="16dp"
-                android:textColor="#000"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+                android:gravity="left|top"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000" />
 
             <TextView
                 android:id="@+id/tv_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:focusable="true"
                 android:gravity="left|top"
-                android:textColor="@color/material_text_color_light"/>
+                android:maxHeight="240dip"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/material_text_color_light" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_height="48dip"
+        <ScrollView
             android:layout_width="fill_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/ll_items"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dip"
+				android:paddingBottom="8dip"
+                android:focusable="true"
+                android:maxHeight="260dip"
+                android:orientation="vertical"
+                android:visibility="gone" >
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="fill_parent"
+            android:layout_height="48dip"
             android:layout_marginRight="16dip"
-            >
+            android:gravity="right"
+            android:orientation="horizontal" >
 
             <com.flyn.smartandroid.views.RippleView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 ripple:rv_centered="true"
-                ripple:rv_type="simpleRipple"
-                ripple:rv_rippleDuration="400"
-                ripple:rv_color="@color/material_blue_100"
-                >
+                ripple:rv_color="@color/material_blue_300"
+                ripple:rv_rippleDuration="300"
+                ripple:rv_type="simpleRipple" >
 
                 <Button
                     android:id="@+id/btn_cancel"
                     android:layout_width="80dip"
                     android:layout_height="36dip"
-                    android:background="@null"
-                    android:text="取消"
                     android:layout_marginRight="8dip"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:background="@null"
+                    android:maxWidth="120dip"
+                    android:minWidth="80dip"
+                    android:text="@string/string_materialdialog_disagree"
                     android:textColor="@color/material_text_color_light"
-                    />
-
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </com.flyn.smartandroid.views.RippleView>
 
             <com.flyn.smartandroid.views.RippleView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 ripple:rv_centered="true"
-                ripple:rv_type="simpleRipple"
-                ripple:rv_rippleDuration="400"
-                ripple:rv_color="@color/material_blue_100"
-                >
+                ripple:rv_color="@color/material_blue_300"
+                ripple:rv_rippleDuration="300"
+                ripple:rv_type="simpleRipple" >
 
                 <Button
-                    android:id="@+id/btn_button_accept"
+                    android:id="@+id/btn_accpet"
                     android:layout_width="64dip"
                     android:layout_height="36dip"
                     android:background="@null"
+                    android:maxWidth="120dip"
+                    android:minWidth="64dip"
+                    android:text="@string/string_materialdialog_agree"
                     android:textColor="@color/material_blue_500"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="同意"/>
+                    android:textStyle="bold" />
             </com.flyn.smartandroid.views.RippleView>
         </LinearLayout>
 
+        <View
+            android:layout_width="1px"
+            android:layout_height="8dip"
+            android:background="@null" />
     </LinearLayout>
 
-
 </RelativeLayout>
-

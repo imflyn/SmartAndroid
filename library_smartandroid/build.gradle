@@ -3,7 +3,9 @@ apply plugin: 'android-library'
 android {
     compileSdkVersion 21
     buildToolsVersion "20"
-
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.flyn.smartandroid"
         minSdkVersion 8
@@ -17,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 

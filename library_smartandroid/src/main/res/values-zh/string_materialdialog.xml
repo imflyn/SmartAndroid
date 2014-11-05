@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <string name="string_materialdialog_agree">确定</string>
+    <string name="string_materialdialog_disagree">取消</string>
+</resources>
