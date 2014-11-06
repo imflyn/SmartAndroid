@@ -46,4 +46,5 @@
         <attr name="pstsTextAllCaps" format="boolean"/>
     </declare-styleable>
 
+    <item name="toorbar" type="id"/>
 </resources>

@@ -22,6 +22,7 @@ public abstract class SmartActivity extends FragmentActivity
     protected Handler mHandler;
     protected UIPresenter uiPresenter;
     protected UIHelper mUIHelper;
+    protected View mRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,9 +49,8 @@ public abstract class SmartActivity extends FragmentActivity
     private void setContentView()
     {
         ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
-        View rootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
-        rootView.setId(((Object) this).hashCode());
-        setContentView(rootView);
+        mRootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
+        setContentView(mRootView);
     }
 
     private void initUIPresenter()
@@ -61,7 +61,7 @@ public abstract class SmartActivity extends FragmentActivity
         {
             Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(View.class);
             constructor.setAccessible(true);
-            uiPresenter = constructor.newInstance(findViewById(((Object) this).hashCode()));
+            uiPresenter = constructor.newInstance(mRootView);
         } catch (Exception e)
         {
             e.printStackTrace();

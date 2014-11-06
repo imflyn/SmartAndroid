@@ -10,9 +10,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
 import com.flyn.smartandroid.app.manager.ActivityManager;
 
@@ -24,6 +26,8 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
     protected Handler mHandler;
     protected UIPresenter uiPresenter;
     protected UIHelper mUIHelper;
+    protected Toolbar mToolbar ;
+    protected View mRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,9 +53,9 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
     private void setContentView()
     {
         ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
-        View rootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
-        rootView.setId(((Object) this).hashCode());
-        setContentView(rootView);
+        mRootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
+        setContentView(mRootView);
+        mToolbar= (Toolbar) findViewById(R.id.toorbar);
     }
 
     private void initUIPresenter()
@@ -61,7 +65,7 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         {
             Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(View.class);
             constructor.setAccessible(true);
-            uiPresenter = constructor.newInstance(findViewById(((Object) this).hashCode()));
+            uiPresenter = constructor.newInstance(mRootView);
         } catch (Exception e)
         {
             e.printStackTrace();
