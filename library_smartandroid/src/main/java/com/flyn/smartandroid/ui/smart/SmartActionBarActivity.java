@@ -55,7 +55,10 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
         mRootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
         setContentView(mRootView);
-        mToolbar= (Toolbar) findViewById(R.id.toorbar);
+        mToolbar= (Toolbar) findViewById(R.id.toolbar);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
     }
 
     private void initUIPresenter()

@@ -387,11 +387,24 @@ public class MaterialDialog extends DialogFragment
             return this;
         }
 
+        public Builder setTitle(int resId)
+        {
+            this.title = Application.getInstance().getString(resId);
+            return this;
+        }
+
         public Builder setMessage(String message)
         {
             this.message = message;
             return this;
         }
+
+        public Builder setMessage(int resId)
+        {
+            this.message = Application.getInstance().getString(resId);
+            return this;
+        }
+
 
         public Builder setButtons(int[] buttonRes)
         {
