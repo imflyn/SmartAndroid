@@ -141,9 +141,12 @@ public class MaterialDialog extends DialogFragment
         }
 
         setCancelable(true);
-
+        getDialog().setCancelable(true);
+        getDialog().setCanceledOnTouchOutside(true);
         setAllowEnterTransitionOverlap(true);
         setAllowReturnTransitionOverlap(true);
+
+
 
         return rootView;
 
@@ -168,8 +171,10 @@ public class MaterialDialog extends DialogFragment
         Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
+
         return dialog;
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
@@ -177,6 +182,8 @@ public class MaterialDialog extends DialogFragment
 
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         super.onViewCreated(view, savedInstanceState);
+
+
     }
 
     @Override
