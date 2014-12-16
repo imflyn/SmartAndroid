@@ -7,7 +7,6 @@ android {
         abortOnError false
     }
     defaultConfig {
-        applicationId "com.flyn.smartandroid"
         minSdkVersion 8
         targetSdkVersion 21
         versionCode 1
