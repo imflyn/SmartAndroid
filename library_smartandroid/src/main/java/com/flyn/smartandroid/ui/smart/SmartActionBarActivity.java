@@ -1,15 +1,12 @@
 package com.flyn.smartandroid.ui.smart;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.support.v7.app.ActionBarActivity;
@@ -86,14 +83,11 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
-        if (NavUtils.shouldUpRecreateTask(this, upIntent))
+        switch (item.getItemId())
         {
-            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
-        } else
-        {
-            upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            NavUtils.navigateUpTo(this, upIntent);
+            case android.R.id.home:
+                finish();
+                break;
         }
         return true;
     }
