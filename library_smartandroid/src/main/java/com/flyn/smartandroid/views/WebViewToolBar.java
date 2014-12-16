@@ -105,14 +105,15 @@ public class WebViewToolBar extends LinearLayout implements OnClickListener
 
     public void setProgressNumber(int progress)
     {
-        pb_loading.setProgress(progress);
         if (progress >= 100)
         {
-            pb_loading.setVisibility(View.GONE);
+            pb_loading.setVisibility(View.INVISIBLE);
         } else
         {
             pb_loading.setVisibility(View.VISIBLE);
         }
+
+        pb_loading.setProgress(progress);
     }
 
 }

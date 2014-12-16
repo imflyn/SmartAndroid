@@ -26,7 +26,7 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
     protected Handler mHandler;
     protected UIPresenter uiPresenter;
     protected UIHelper mUIHelper;
-    protected Toolbar mToolbar ;
+    protected Toolbar mToolbar;
     protected View mRootView;
 
     @Override
@@ -55,8 +55,9 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
         mRootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
         setContentView(mRootView);
-        mToolbar= (Toolbar) findViewById(R.id.toolbar);
-        if (mToolbar != null) {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (mToolbar != null)
+        {
             setSupportActionBar(mToolbar);
         }
     }

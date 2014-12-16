@@ -97,9 +97,9 @@ public abstract class UIPresenter
 
     public ActionBar getSupportActionBar()
     {
-        if(mContext instanceof ActionBarActivity)
+        if (mContext instanceof ActionBarActivity)
         {
-            return ((ActionBarActivity)mContext).getSupportActionBar();
+            return ((ActionBarActivity) mContext).getSupportActionBar();
         }
         return null;
     }

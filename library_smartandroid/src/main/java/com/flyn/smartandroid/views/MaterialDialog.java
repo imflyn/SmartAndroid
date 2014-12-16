@@ -147,7 +147,6 @@ public class MaterialDialog extends DialogFragment
         setAllowReturnTransitionOverlap(true);
 
 
-
         return rootView;
 
     }
