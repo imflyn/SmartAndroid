@@ -57,7 +57,7 @@ public class CustomWebView extends FrameLayout
         this.webViewListener = webViewListener;
     }
 
-    public WebView getWebView()
+    public ScrollableWebView getWebView()
     {
         return mWebView;
     }
