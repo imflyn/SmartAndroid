@@ -52,7 +52,7 @@
         </LinearLayout>
     </FrameLayout>
 
-    <com.android.lzdevstructrue.widget.WebViewToolBar
+    <com.flyn.smartandroid.views.WebViewToolBar
         android:id="@+id/webview_toolbar"
         android:layout_width="match_parent"
         android:layout_height="48dip"

@@ -37,7 +37,7 @@ public class MaterialDialog extends DialogFragment
 
     private TextView tv_title;
     private TextView tv_message;
-    private Button btn_accpet;
+    private Button btn_accept;
     private Button btn_cancel;
     private LinearLayout ll_buttons;
     private LinearLayout ll_items;
@@ -73,7 +73,7 @@ public class MaterialDialog extends DialogFragment
 
         tv_title = (TextView) rootView.findViewById(R.id.tv_title);
         tv_message = (TextView) rootView.findViewById(R.id.tv_message);
-        btn_accpet = (Button) rootView.findViewById(R.id.btn_accpet);
+        btn_accept = (Button) rootView.findViewById(R.id.btn_accept);
         btn_cancel = (Button) rootView.findViewById(R.id.btn_cancel);
         ll_buttons = (LinearLayout) rootView.findViewById(R.id.ll_buttons);
         ll_items = (LinearLayout) rootView.findViewById(R.id.ll_items);
@@ -82,7 +82,7 @@ public class MaterialDialog extends DialogFragment
         setTitle(title);
         setMessage(message);
 
-        btn_accpet.setOnClickListener(new View.OnClickListener()
+        btn_accept.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
@@ -295,7 +295,7 @@ public class MaterialDialog extends DialogFragment
 
         this.buttonArray = buttonArray;
 
-        if (this.ll_buttons == null || this.btn_cancel == null || this.btn_accpet == null)
+        if (this.ll_buttons == null || this.btn_cancel == null || this.btn_accept == null)
         {
             return;
         }
@@ -312,7 +312,7 @@ public class MaterialDialog extends DialogFragment
             {
                 this.btn_cancel.setVisibility(View.GONE);
             }
-            this.btn_accpet.setText(buttonArray[0]);
+            this.btn_accept.setText(buttonArray[0]);
         }
     }
 
