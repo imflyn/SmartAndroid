@@ -1,16 +1,20 @@
 package com.flyn.smartandroid.ui.smart;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -59,6 +63,9 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         if (mToolbar != null)
         {
             setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         }
     }
 
@@ -74,6 +81,21 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        if (NavUtils.shouldUpRecreateTask(this, upIntent))
+        {
+            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+        } else
+        {
+            upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            NavUtils.navigateUpTo(this, upIntent);
+        }
+        return true;
     }
 
     @Override
