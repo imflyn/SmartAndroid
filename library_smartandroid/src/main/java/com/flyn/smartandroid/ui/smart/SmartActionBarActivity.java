@@ -61,8 +61,6 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         {
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         }
     }
 
