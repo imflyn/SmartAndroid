@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.support.v7.app.ActionBarActivity;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
 import com.flyn.smartandroid.app.manager.ActivityManager;
+import com.flyn.smartandroid.ui.utils.DensityUtils;
 
 import java.lang.reflect.Constructor;
 
@@ -60,6 +62,8 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
         if (mToolbar != null)
         {
             setSupportActionBar(mToolbar);
+            ViewCompat viewCompat = new ViewCompat();
+            viewCompat.setElevation(mToolbar, DensityUtils.dip2px(8));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
