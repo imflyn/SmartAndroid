@@ -29,6 +29,7 @@ public class SharedPreferenceFactory
                     try
                     {
                         Constructor<? extends AbstractSharedPreference> constructor = clazz.getConstructor(Context.class);
+                        constructor.setAccessible(true);
                         asp = constructor.newInstance(context);
                     } catch (Throwable e)
                     {

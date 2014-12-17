@@ -8,8 +8,6 @@ import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.flyn.smartandroid.util.PackageUtil;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,24 +36,13 @@ public abstract class AbstractSharedPreference
             storeName = DEFAULT_STORE_NAME;
         }
         this.context = context;
-        this.xmlFileName = buildSharedPreferencesFileName(this.context, storeName);
+        this.xmlFileName = storeName;
         this.sharedPreferences = context.getSharedPreferences(this.xmlFileName, Context.MODE_PRIVATE);
     }
 
     public String getXmlFileName()
     {
         return xmlFileName;
-    }
-
-    private String buildSharedPreferencesFileName(Context context, String xmlFileName)
-    {
-        // 把service注册成运行在单独的进程，因此Application的onCreate()会被调用多次，所以不同的进程绝对不能操作同一个文件！
-        String pName = PackageUtil.getCurrentProcessName(context);
-        if (pName != null)
-        {
-            pName = pName.replaceAll("[^\\w]+", "_");
-        }
-        return xmlFileName + "_" + pName;
     }
 
     /**
