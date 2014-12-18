@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.flyn.smartandroid.app.Application;
@@ -55,7 +57,7 @@ public abstract class UIPresenter
 
     }
 
-    protected void onDestory()
+    protected void onDestroy()
     {
 
     }
@@ -67,6 +69,16 @@ public abstract class UIPresenter
 
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        return true;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        return true;
     }
 
     public void onConfigurationChanged(Configuration newConfig)
@@ -109,4 +121,6 @@ public abstract class UIPresenter
         }
         return null;
     }
+
+
 }

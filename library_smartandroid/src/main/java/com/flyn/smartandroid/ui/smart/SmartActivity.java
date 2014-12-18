@@ -121,8 +121,8 @@ public abstract class SmartActivity extends FragmentActivity
     {
         ActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
-        this.uiPresenter.onDestory();
-        mUIHelper.onDestory();
+        this.uiPresenter.onDestroy();
+        mUIHelper.onDestroy();
     }
 
     @Override

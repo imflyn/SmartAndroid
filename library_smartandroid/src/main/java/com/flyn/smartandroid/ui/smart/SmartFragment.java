@@ -126,8 +126,8 @@ public abstract class SmartFragment extends Fragment
     public void onDestroy()
     {
         super.onDestroy();
-        this.uiPresenter.onDestory();
-        mUIHelper.onDestory();
+        this.uiPresenter.onDestroy();
+        mUIHelper.onDestroy();
     }
 
     @Override

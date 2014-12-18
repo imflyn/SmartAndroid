@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,14 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
                 finish();
                 break;
         }
-        return true;
+
+        return uiPresenter.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        return uiPresenter.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -147,9 +155,10 @@ public abstract class SmartActionBarActivity extends ActionBarActivity
     {
         ActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
-        this.uiPresenter.onDestory();
-        mUIHelper.onDestory();
+        this.uiPresenter.onDestroy();
+        mUIHelper.onDestroy();
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig)

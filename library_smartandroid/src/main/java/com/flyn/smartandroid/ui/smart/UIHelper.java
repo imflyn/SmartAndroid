@@ -39,7 +39,7 @@ public class UIHelper
 
     }
 
-    public void onDestory()
+    public void onDestroy()
     {
 
     }
