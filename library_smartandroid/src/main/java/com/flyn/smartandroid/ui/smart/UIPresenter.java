@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -118,6 +120,15 @@ public abstract class UIPresenter
         if (mContext instanceof ActionBarActivity)
         {
             return ((ActionBarActivity) mContext).getSupportActionBar();
+        }
+        return null;
+    }
+
+    public FragmentManager getSupportFragmentManager()
+    {
+        if (mContext instanceof FragmentActivity)
+        {
+            return ((FragmentActivity) mContext).getSupportFragmentManager();
         }
         return null;
     }

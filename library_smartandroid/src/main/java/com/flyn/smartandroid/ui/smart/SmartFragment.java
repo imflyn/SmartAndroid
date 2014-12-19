@@ -73,7 +73,8 @@ public abstract class SmartFragment extends Fragment
 
         try
         {
-            Constructor<? extends UIPresenter> constructor = clz.getConstructor(View.class);
+            Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(View.class);
+            constructor.setAccessible(true);
             uiPresenter = constructor.newInstance(mRootView);
         } catch (Exception e)
         {
