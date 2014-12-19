@@ -38,7 +38,7 @@ public class DensityUtils
         return Application.getInstance().getResources().getDisplayMetrics().widthPixels;
     }
 
-    public static int getScreenHeigth()
+    public static int getScreenHeight()
     {
         return Application.getInstance().getResources().getDisplayMetrics().heightPixels;
     }
