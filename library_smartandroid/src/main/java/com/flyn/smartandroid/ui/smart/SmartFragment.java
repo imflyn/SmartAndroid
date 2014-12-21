@@ -158,6 +158,8 @@ public abstract class SmartFragment extends Fragment
 
     protected abstract Class<? extends UIPresenter> getUIPresenterClz();
 
+    protected abstract UIPresenter getUiPresenter();
+
     protected Class<? extends DialogFragment> defaultLoadingDialog()
     {
         return null;

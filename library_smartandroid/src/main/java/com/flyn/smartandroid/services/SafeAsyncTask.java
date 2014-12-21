@@ -1,5 +1,8 @@
 package com.flyn.smartandroid.services;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
+
 public abstract class SafeAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result>
 {
 
@@ -32,6 +35,7 @@ public abstract class SafeAsyncTask<Params, Progress, Result> extends AsyncTask<
         } catch (Exception e)
         {
             mError = e;
+            e.printStackTrace();
             return null;
         }
     }
@@ -51,6 +55,7 @@ public abstract class SafeAsyncTask<Params, Progress, Result> extends AsyncTask<
                 onSuccess(result);
             } else
             {
+                mError.printStackTrace();
                 onFailure(mError);
             }
         } finally
@@ -64,7 +69,7 @@ public abstract class SafeAsyncTask<Params, Progress, Result> extends AsyncTask<
         }
     }
 
-    protected abstract Result run(Params... params);
+    protected abstract Result run(Params... params) throws InterruptedException, ExecutionException, TimeoutException;
 
     public abstract void onSuccess(Result result);
 

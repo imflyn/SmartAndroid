@@ -228,4 +228,46 @@ public class ImageUtils
             bitmap.recycle();
         }
     }
+
+
+    public static int findBestSampleSize(int actualWidth, int actualHeight, int desiredWidth, int desiredHeight)
+    {
+        double wr = (double) actualWidth / desiredWidth;
+        double hr = (double) actualHeight / desiredHeight;
+        double ratio = Math.min(wr, hr);
+        float n = 1.0f;
+        while ((n * 2) <= ratio)
+        {
+            n *= 2;
+        }
+
+        return (int) n;
+    }
+
+    private static int getResizedDimension(int maxPrimary, int maxSecondary, int actualPrimary, int actualSecondary)
+    {
+        if (maxPrimary == 0 && maxSecondary == 0)
+        {
+            return actualPrimary;
+        }
+
+        if (maxPrimary == 0)
+        {
+            double ratio = (double) maxSecondary / (double) actualSecondary;
+            return (int) (actualPrimary * ratio);
+        }
+
+        if (maxSecondary == 0)
+        {
+            return maxPrimary;
+        }
+
+        double ratio = (double) actualSecondary / (double) actualPrimary;
+        int resized = maxPrimary;
+        if (resized * ratio > maxSecondary)
+        {
+            resized = (int) (maxSecondary / ratio);
+        }
+        return resized;
+    }
 }
