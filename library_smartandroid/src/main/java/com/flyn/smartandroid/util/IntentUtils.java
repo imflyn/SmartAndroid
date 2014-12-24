@@ -418,79 +418,17 @@ public class IntentUtils
      * @param scope You can restrict selection by passing required content type.
      *              Examples:
      *              <p/>
-     *              <code><pre>
+     *              // Select only from users with emails
      *              <p/>
+     *              IntentUtils.pickContact(ContactsContract.CommonDataKinds.Email.CONTENT_TYPE);
      *              <p/>
+     *              // Select only from users with phone numbers on pre Eclair devices
      *              <p/>
+     *              IntentUtils.pickContact(Contacts.Phones.CONTENT_TYPE);
      *              <p/>
+     *              // Select only from users with phone numbers on devices with Eclair and higher
      *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             // Select only from users with emails
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             IntentUtils.pickContact(ContactsContract.CommonDataKinds.Email.CONTENT_TYPE);
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             // Select only from users with phone numbers on pre Eclair devices
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             IntentUtils.pickContact(Contacts.Phones.CONTENT_TYPE);
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             // Select only from users with phone numbers on devices with Eclair and higher
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             IntentUtils.pickContact(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *              <p/>
-     *
-     *                                                                                                                                             </pre></code>
+     *              IntentUtils.pickContact(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
      */
     public static Intent pickContact(String scope)
     {
@@ -642,5 +580,18 @@ public class IntentUtils
     private static boolean isSupportsContactsV2()
     {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR;
+    }
+
+    /**
+     * 最小化
+     *
+     * @return
+     */
+    public static Intent minimalityIntent()
+    {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        return intent;
     }
 }
