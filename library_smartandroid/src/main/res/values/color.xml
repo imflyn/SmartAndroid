@@ -22,6 +22,12 @@
     <color name="material_red_500">#F44336</color>
     <color name="material_red_600">#E53935</color>
     <color name="material_red_700">#D32F2F</color>
+    <color name="material_red_800">#C62828</color>
+    <color name="material_red_900">#B71C1C</color>
+    <color name="material_red_A100">#FF8A80</color>
+    <color name="material_red_A200">#FF5252</color>
+    <color name="material_red_A400">#FF1744</color>
+    <color name="material_red_A700">#D50000</color>
 
     <color name="material_teal_50">#E0F2F1</color>
     <color name="material_teal_100">#B2DFDB</color>

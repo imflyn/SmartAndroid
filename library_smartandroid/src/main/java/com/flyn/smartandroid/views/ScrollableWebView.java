@@ -14,11 +14,11 @@ import android.webkit.WebView;
 public class ScrollableWebView extends WebView implements Scrollable
 {
     private ObservableScrollViewCallbacks mCallbacks;
-    private int mPrevScrollY;
-    private int mScrollY;
-    private ScrollState mScrollState;
-    private boolean mFirstScroll;
-    private boolean mDragging;
+    private int                           mPrevScrollY;
+    private int                           mScrollY;
+    private ScrollState                   mScrollState;
+    private boolean                       mFirstScroll;
+    private boolean                       mDragging;
 
     public ScrollableWebView(Context context)
     {
