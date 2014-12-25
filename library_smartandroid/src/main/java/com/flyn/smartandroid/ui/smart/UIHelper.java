@@ -3,6 +3,7 @@ package com.flyn.smartandroid.ui.smart;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 
 /**
  * Created by flyn on 2014-11-02.
@@ -79,6 +80,14 @@ public class UIHelper
     public void showDialogFragment(Class<? extends DialogFragment> clz)
     {
 
+    }
+
+    public void showDialogFragment(FragmentManager fragmentManager)
+    {
+        if (mCustomDialogFragment != null)
+        {
+            mCustomDialogFragment.show(fragmentManager, mCustomDialogFragment.getClass().getSimpleName());
+        }
     }
 
     public void hiddenDialogFragment()
