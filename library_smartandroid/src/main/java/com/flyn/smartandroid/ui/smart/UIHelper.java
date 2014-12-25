@@ -10,8 +10,8 @@ import android.support.v4.app.DialogFragment;
 public class UIHelper
 {
 
-    private DialogFragment mLoadingDialogFragment;
-    private DialogFragment mCustomDialogFragment;
+    public DialogFragment mLoadingDialogFragment;
+    public DialogFragment mCustomDialogFragment;
 
 
     public void onCreate(Bundle bundle)
@@ -41,7 +41,8 @@ public class UIHelper
 
     public void onDestroy()
     {
-
+        hiddenLoadingDialog();
+        hiddenDialogFragment();
     }
 
     public void onSaveInstanceState(Bundle outState)
@@ -69,7 +70,10 @@ public class UIHelper
 
     public void hiddenLoadingDialog()
     {
-
+        if (mCustomDialogFragment != null)
+        {
+            mCustomDialogFragment.dismiss();
+        }
     }
 
     public void showDialogFragment(Class<? extends DialogFragment> clz)
@@ -79,7 +83,10 @@ public class UIHelper
 
     public void hiddenDialogFragment()
     {
-
+        if (mLoadingDialogFragment != null)
+        {
+            mLoadingDialogFragment.dismiss();
+        }
     }
 
     public void setDefaultLoadingDialogFragment(Class<? extends DialogFragment> clz)
