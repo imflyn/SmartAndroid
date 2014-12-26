@@ -29,16 +29,18 @@ import com.flyn.smartandroid.app.Application;
 public class MaterialDialog extends DialogFragment
 {
 
-    private String title;
-    private String message;
-    private String[] itemArray;
-    private String[] buttonArray;
-    private OnClickListener onClickListener;
+    private String                   title;
+    private String                   message;
+    private String[]                 itemArray;
+    private String[]                 buttonArray;
+    private OnClickListener          onClickListener;
+    private Dialog.OnCancelListener  onCancelListener;
+    private Dialog.OnDismissListener onDismissListener;
 
-    private TextView tv_title;
-    private TextView tv_message;
-    private Button btn_accept;
-    private Button btn_cancel;
+    private TextView     tv_title;
+    private TextView     tv_message;
+    private Button       btn_accept;
+    private Button       btn_cancel;
     private LinearLayout ll_buttons;
     private LinearLayout ll_items;
 
@@ -143,9 +145,10 @@ public class MaterialDialog extends DialogFragment
         setCancelable(true);
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
+        getDialog().setOnCancelListener(this.onCancelListener);
+        getDialog().setOnDismissListener(this.onDismissListener);
         setAllowEnterTransitionOverlap(true);
         setAllowReturnTransitionOverlap(true);
-
 
         return rootView;
 
@@ -178,12 +181,10 @@ public class MaterialDialog extends DialogFragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
-
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         super.onViewCreated(view, savedInstanceState);
-
-
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig)
@@ -205,10 +206,23 @@ public class MaterialDialog extends DialogFragment
     }
 
     @Override
+    public void onCancel(DialogInterface dialog)
+    {
+        super.onCancel(dialog);
+        if (null != onCancelListener)
+        {
+            onCancelListener.onCancel(dialog);
+        }
+    }
+
+    @Override
     public void onDismiss(DialogInterface dialog)
     {
         super.onDismiss(dialog);
-
+        if (null != onDismissListener)
+        {
+            onDismissListener.onDismiss(dialog);
+        }
     }
 
     @Override
@@ -244,7 +258,6 @@ public class MaterialDialog extends DialogFragment
     public MaterialDialog show(FragmentManager fragmentManager)
     {
         show(fragmentManager, MaterialDialog.class.getSimpleName());
-
         return this;
     }
 
@@ -252,12 +265,10 @@ public class MaterialDialog extends DialogFragment
     {
 
         this.title = title;
-
         if (tv_title == null)
         {
             return;
         }
-
         if (TextUtils.isEmpty(title))
         {
 
@@ -305,7 +316,7 @@ public class MaterialDialog extends DialogFragment
             this.ll_buttons.setVisibility(View.GONE);
         } else if (null != buttonArray)
         {
-            if (buttonArray.length >= 1)
+            if (buttonArray.length > 1)
             {
                 this.btn_cancel.setText(buttonArray[1]);
             } else
@@ -367,6 +378,17 @@ public class MaterialDialog extends DialogFragment
         this.onClickListener = onClickListener;
     }
 
+
+    public void setOnCancelListener(Dialog.OnCancelListener onCancelListener)
+    {
+        this.onCancelListener = onCancelListener;
+    }
+
+    public void setOnDismissListener(Dialog.OnDismissListener onDismissListener)
+    {
+        this.onDismissListener = onDismissListener;
+    }
+
     public interface OnClickListener
     {
 
@@ -380,12 +402,14 @@ public class MaterialDialog extends DialogFragment
 
     public static class Builder
     {
-        private String title;
-        private String message;
+        private String   title;
+        private String   message;
         private String[] itemArray;
         private String[] buttonArray;
 
-        private OnClickListener onClickListener;
+        private OnClickListener          onClickListener;
+        private Dialog.OnCancelListener  onCancelListener;
+        private Dialog.OnDismissListener onDismissListener;
 
         public Builder setTitle(String title)
         {
@@ -471,6 +495,18 @@ public class MaterialDialog extends DialogFragment
             return this;
         }
 
+        public Builder setOnCancelListener(DialogInterface.OnCancelListener onCancelListener)
+        {
+            this.onCancelListener = onCancelListener;
+            return this;
+        }
+
+        public Builder setOnDismissListener(DialogInterface.OnDismissListener onDismissListener)
+        {
+            this.onDismissListener = onDismissListener;
+            return this;
+        }
+
         public Builder setOnClickListener(OnClickListener onClickListener)
         {
             this.onClickListener = onClickListener;
@@ -487,6 +523,9 @@ public class MaterialDialog extends DialogFragment
             materialDialog.setItems(itemArray);
 
             materialDialog.setOnDialogClickListener(onClickListener);
+            materialDialog.setOnDismissListener(onDismissListener);
+            materialDialog.setOnCancelListener(onCancelListener);
+
             return materialDialog;
         }
 

@@ -71,9 +71,17 @@ public class UIHelper
 
     public void hiddenLoadingDialog()
     {
-        if (mCustomDialogFragment != null)
+        if (mLoadingDialogFragment != null)
         {
-            mCustomDialogFragment.dismiss();
+            mLoadingDialogFragment.dismiss();
+        }
+    }
+
+    public void cancelLoadingDialog()
+    {
+        if (mLoadingDialogFragment != null && mLoadingDialogFragment.getDialog() != null)
+        {
+            mLoadingDialogFragment.getDialog().cancel();
         }
     }
 
@@ -92,9 +100,17 @@ public class UIHelper
 
     public void hiddenDialogFragment()
     {
-        if (mLoadingDialogFragment != null)
+        if (mCustomDialogFragment != null)
         {
-            mLoadingDialogFragment.dismiss();
+            mCustomDialogFragment.dismiss();
+        }
+    }
+
+    public void cancelDialogFragment()
+    {
+        if (mCustomDialogFragment != null && mCustomDialogFragment.getDialog() != null)
+        {
+            mCustomDialogFragment.getDialog().cancel();
         }
     }
 

@@ -23,8 +23,8 @@ import com.flyn.smartandroid.app.Application;
 public abstract class UIPresenter
 {
     protected Activity mContext;
-    protected Handler mHandler;
-    protected View mRootView;
+    protected Handler  mHandler;
+    protected View     mRootView;
     protected UIHelper uiHelper;
 
     protected UIPresenter(View rootView)
@@ -103,6 +103,11 @@ public abstract class UIPresenter
     public String getString(int resId)
     {
         return mContext.getString(resId);
+    }
+
+    public String getString(int resId, Object... args)
+    {
+        return mContext.getString(resId, args);
     }
 
     public Drawable getDrawable(int resId)
