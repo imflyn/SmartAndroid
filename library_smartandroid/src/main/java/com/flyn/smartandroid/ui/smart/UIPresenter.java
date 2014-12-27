@@ -120,6 +120,11 @@ public abstract class UIPresenter
         return mContext.getResources();
     }
 
+    public int getColor(int color)
+    {
+        return mContext.getResources().getColor(color);
+    }
+
     public ActionBar getSupportActionBar()
     {
         if (mContext instanceof ActionBarActivity)
