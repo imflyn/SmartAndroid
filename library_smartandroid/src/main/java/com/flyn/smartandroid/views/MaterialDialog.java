@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
+import com.flyn.smartandroid.ui.utils.ViewUtils;
 
 /**
  * Created by flyn on 2014-11-04.
@@ -99,6 +100,11 @@ public class MaterialDialog extends DialogFragment
 
                         if (null != onClickListener)
                         {
+                            if (ViewUtils.isFastDoubleClick())
+                            {
+                                return;
+                            }
+
                             onClickListener.onDialogPositiveClick(MaterialDialog.this);
                         }
                     }
@@ -121,7 +127,10 @@ public class MaterialDialog extends DialogFragment
 
                         if (null != onClickListener)
                         {
-
+                            if (ViewUtils.isFastDoubleClick())
+                            {
+                                return;
+                            }
                             onClickListener.onDialogNegativeClick(MaterialDialog.this);
                         }
                     }
@@ -362,6 +371,10 @@ public class MaterialDialog extends DialogFragment
                         {
                             if (null != onClickListener)
                             {
+                                if (ViewUtils.isFastDoubleClick())
+                                {
+                                    return;
+                                }
                                 onClickListener.onDialogItemClick(MaterialDialog.this, position);
                             }
                         }
