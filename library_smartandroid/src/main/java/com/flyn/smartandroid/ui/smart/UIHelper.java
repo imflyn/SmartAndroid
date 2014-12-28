@@ -1,5 +1,6 @@
 package com.flyn.smartandroid.ui.smart;
 
+import android.app.Dialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -13,6 +14,7 @@ public class UIHelper
 
     public DialogFragment mLoadingDialogFragment;
     public DialogFragment mCustomDialogFragment;
+    public Dialog         mDialog;
 
 
     public void onCreate(Bundle bundle)
@@ -117,5 +119,13 @@ public class UIHelper
     public void setDefaultLoadingDialogFragment(Class<? extends DialogFragment> clz)
     {
 
+    }
+
+    public void dismissDialog()
+    {
+        if (mDialog != null && mDialog.isShowing())
+        {
+            mDialog.dismiss();
+        }
     }
 }
