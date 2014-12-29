@@ -20,13 +20,13 @@ import com.flyn.smartandroid.util.NetWorkUtil;
 
 public class CustomWebView extends FrameLayout
 {
-    private WebViewToolBar webViewToolBar;
+    private WebViewToolBar    webViewToolBar;
     private ScrollableWebView mWebView;
-    private TextView tv_reload;
-    private LinearLayout ll_nonet;
-    private String mUrl;
-    private WebChromeClient webChromeClient;
-    private WebViewListener webViewListener;
+    private TextView          tv_reload;
+    private LinearLayout      ll_nonet;
+    private String            mUrl;
+    private WebChromeClient   webChromeClient;
+    private WebViewListener   webViewListener;
     private boolean shouldOverrideUrl = false;
 
     public CustomWebView(Context context)
@@ -139,6 +139,10 @@ public class CustomWebView extends FrameLayout
                 if (null != webViewListener)
                 {
                     webViewListener.onReceivedTitle(view.getTitle());
+                }
+                if (null != webViewListener)
+                {
+                    webViewListener.onPageFinished(view, url);
                 }
                 addImageClickListener();
             }
@@ -288,6 +292,8 @@ public class CustomWebView extends FrameLayout
         void onReceivedTitle(String title);
 
         void onOpenImage(String[] urlList, int position);
+
+        void onPageFinished(WebView view, String url);
     }
 
     private class MyJavascriptInterface
