@@ -20,11 +20,11 @@ public abstract class SmartFragment extends Fragment
 {
 
 
-    protected Activity mContext;
-    protected Handler mHandler;
+    protected Activity    mContext;
+    protected Handler     mHandler;
     protected UIPresenter uiPresenter;
-    protected UIHelper mUIHelper;
-    private View mRootView;
+    protected UIHelper    mUIHelper;
+    private   View        mRootView;
 
 
     @Override
@@ -129,6 +129,11 @@ public abstract class SmartFragment extends Fragment
         super.onDestroy();
         this.uiPresenter.onDestroy();
         mUIHelper.onDestroy();
+
+        if (null != mRootView)
+        {
+            ((ViewGroup) mRootView.getParent()).removeView(mRootView);
+        }
     }
 
     @Override
