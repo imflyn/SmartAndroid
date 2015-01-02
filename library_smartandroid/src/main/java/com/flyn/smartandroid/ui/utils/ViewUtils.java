@@ -174,4 +174,18 @@ public class ViewUtils
         return totalHeight;
     }
 
+    /**
+     * 设置背景透明度
+     *
+     * @param view
+     * @param alpha
+     * @param baseColor
+     */
+    public static void setBackgroundAlpha(View view, float alpha, int baseColor)
+    {
+        int a = Math.min(255, Math.max(0, (int) (alpha * 255))) << 24;
+        int rgb = 0x00ffffff & baseColor;
+        view.setBackgroundColor(a + rgb);
+    }
+
 }
