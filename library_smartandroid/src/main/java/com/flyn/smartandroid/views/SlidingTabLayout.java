@@ -241,6 +241,11 @@ public class SlidingTabLayout extends HorizontalScrollView
             if (i == mViewPager.getCurrentItem())
             {
                 tabView.setSelected(true);
+                tabTitleView.setSelected(true);
+            } else
+            {
+                tabView.setSelected(false);
+                tabTitleView.setSelected(false);
             }
         }
     }
