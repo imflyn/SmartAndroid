@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.material;
 
 import android.app.Activity;
 import android.app.Dialog;

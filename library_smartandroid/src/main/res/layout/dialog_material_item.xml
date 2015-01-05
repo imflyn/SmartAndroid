@@ -8,7 +8,7 @@
               android:paddingRight="16dip"
     >
 
-    <com.flyn.smartandroid.views.RippleView
+    <com.flyn.smartandroid.views.material.RippleView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
@@ -27,6 +27,6 @@
             android:textColor="@color/material_blue_500"
             android:textSize="16sp"
             android:textStyle="bold"/>
-    </com.flyn.smartandroid.views.RippleView>
+    </com.flyn.smartandroid.views.material.RippleView>
 
 </LinearLayout>

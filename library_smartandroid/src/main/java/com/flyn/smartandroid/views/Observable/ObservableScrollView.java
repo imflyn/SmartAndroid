@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -26,11 +26,11 @@ import android.widget.ScrollView;
 public class ObservableScrollView extends ScrollView implements Scrollable
 {
     private ObservableScrollViewCallbacks mCallbacks;
-    private int mPrevScrollY;
-    private int mScrollY;
-    private ScrollState mScrollState;
-    private boolean mFirstScroll;
-    private boolean mDragging;
+    private int                           mPrevScrollY;
+    private int                           mScrollY;
+    private ScrollState                   mScrollState;
+    private boolean                       mFirstScroll;
+    private boolean                       mDragging;
 
     public ObservableScrollView(Context context)
     {

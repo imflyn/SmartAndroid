@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -31,15 +31,15 @@ public class ObservableRecyclerView extends RecyclerView implements Scrollable
 {
 
     private ObservableScrollViewCallbacks mCallbacks;
-    private int mPrevFirstVisiblePosition;
+    private int                           mPrevFirstVisiblePosition;
     private int mPrevFirstVisibleChildHeight = -1;
-    private int mPrevScrolledChildrenHeight;
+    private int            mPrevScrolledChildrenHeight;
     private SparseIntArray mChildrenHeights;
-    private int mPrevScrollY;
-    private int mScrollY;
-    private ScrollState mScrollState;
-    private boolean mFirstScroll;
-    private boolean mDragging;
+    private int            mPrevScrollY;
+    private int            mScrollY;
+    private ScrollState    mScrollState;
+    private boolean        mFirstScroll;
+    private boolean        mDragging;
 
     public ObservableRecyclerView(Context context)
     {
@@ -268,9 +268,9 @@ public class ObservableRecyclerView extends RecyclerView implements Scrollable
     {
         int prevFirstVisiblePosition;
         int prevFirstVisibleChildHeight = -1;
-        int prevScrolledChildrenHeight;
-        int prevScrollY;
-        int scrollY;
+        int            prevScrolledChildrenHeight;
+        int            prevScrollY;
+        int            scrollY;
         SparseIntArray childrenHeights;
 
         SavedState(Parcelable superState)

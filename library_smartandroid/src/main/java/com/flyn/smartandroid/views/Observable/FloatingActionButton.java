@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -31,10 +31,10 @@ public class FloatingActionButton extends ImageButton
 {
 
     public static final int SIZE_NORMAL = 0;
-    public static final int SIZE_MINI = 1;
+    public static final int SIZE_MINI   = 1;
 
     private static final String COLOR_BG_NORMAL = "#303f9f";
-    private static final String COLOR_BG_PRESS = "#3f51b5";
+    private static final String COLOR_BG_PRESS  = "#3f51b5";
 
     private static final int HALF_TRANSPARENT_WHITE = Color.argb(128, 255, 255, 255);
     private static final int HALF_TRANSPARENT_BLACK = Color.argb(128, 0, 0, 0);
@@ -48,7 +48,7 @@ public class FloatingActionButton extends ImageButton
     private float mCircleSize;
     private float mShadowRadius;
     private float mShadowOffset;
-    private int mDrawableSize;
+    private int   mDrawableSize;
 
     public FloatingActionButton(Context context)
     {

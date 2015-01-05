@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 import android.content.Context;
 import android.os.Parcel;

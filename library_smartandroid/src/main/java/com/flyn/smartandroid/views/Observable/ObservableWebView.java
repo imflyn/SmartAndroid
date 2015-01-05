@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 /**
  * Created by flyn on 2014-12-16.
@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 
-public class ScrollableWebView extends WebView implements Scrollable
+public class ObservableWebView extends WebView implements Scrollable
 {
     private ObservableScrollViewCallbacks mCallbacks;
     private int                           mPrevScrollY;
@@ -20,17 +20,17 @@ public class ScrollableWebView extends WebView implements Scrollable
     private boolean                       mFirstScroll;
     private boolean                       mDragging;
 
-    public ScrollableWebView(Context context)
+    public ObservableWebView(Context context)
     {
         super(context);
     }
 
-    public ScrollableWebView(Context context, AttributeSet attrs)
+    public ObservableWebView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
     }
 
-    public ScrollableWebView(Context context, AttributeSet attrs, int defStyle)
+    public ObservableWebView(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
     }

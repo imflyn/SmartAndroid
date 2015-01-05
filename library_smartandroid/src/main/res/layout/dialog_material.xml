@@ -71,7 +71,7 @@
             android:gravity="right"
             android:orientation="horizontal">
 
-            <com.flyn.smartandroid.views.RippleView
+            <com.flyn.smartandroid.views.material.RippleView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -92,9 +92,9 @@
                     android:textColor="@color/material_text_color_light"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
-            </com.flyn.smartandroid.views.RippleView>
+            </com.flyn.smartandroid.views.material.RippleView>
 
-            <com.flyn.smartandroid.views.RippleView
+            <com.flyn.smartandroid.views.material.RippleView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -114,7 +114,7 @@
                     android:textColor="@color/material_blue_500"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
-            </com.flyn.smartandroid.views.RippleView>
+            </com.flyn.smartandroid.views.material.RippleView>
         </LinearLayout>
 
         <View

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.material;
 
 import android.R;
 import android.content.Context;

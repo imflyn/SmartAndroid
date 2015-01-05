@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.material;
 
 /**
  * Created by flyn on 2014-11-03.
@@ -30,28 +30,28 @@ public class RippleView extends RelativeLayout
 {
     private int WIDTH;
     private int HEIGHT;
-    private int FRAME_RATE = 10;
-    private int DURATION = 400;
+    private int FRAME_RATE  = 10;
+    private int DURATION    = 400;
     private int PAINT_ALPHA = 90;
     private Handler canvasHandler;
-    private float radiusMax = 0;
+    private float   radiusMax        = 0;
     private boolean animationRunning = false;
-    private int timer = 0;
-    private int timerEmpty = 0;
-    private int durationEmpty = -1;
-    private float x = -1;
-    private float y = -1;
-    private int zoomDuration;
-    private float zoomScale;
-    private ScaleAnimation scaleAnimation;
-    private Boolean hasToZoom;
-    private Boolean isCentered;
-    private Integer rippleType;
-    private Paint paint;
-    private Bitmap originBitmap;
-    private int rippleColor;
-    private View childView;
-    private int ripplePadding;
+    private int     timer            = 0;
+    private int     timerEmpty       = 0;
+    private int     durationEmpty    = -1;
+    private float   x                = -1;
+    private float   y                = -1;
+    private int             zoomDuration;
+    private float           zoomScale;
+    private ScaleAnimation  scaleAnimation;
+    private Boolean         hasToZoom;
+    private Boolean         isCentered;
+    private Integer         rippleType;
+    private Paint           paint;
+    private Bitmap          originBitmap;
+    private int             rippleColor;
+    private View            childView;
+    private int             ripplePadding;
     private GestureDetector gestureDetector;
     private Runnable runnable = new Runnable()
     {

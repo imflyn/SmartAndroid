@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.material;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -41,7 +41,7 @@ import android.widget.TextView;
  * <p/>
  * The colors can be customized in two ways. The first and simplest is to provide an array of colors
  * via {@link #setSelectedIndicatorColors(int...)}. The
- * alternative is via the {@link com.flyn.smartandroid.views.SlidingTabLayout.TabColorizer} interface which provides you complete
+ * alternative is via the {@link SlidingTabLayout.TabColorizer} interface which provides you complete
  * control over
  * which color is used for any individual position.
  * <p/>
@@ -52,7 +52,7 @@ public class SlidingTabLayout extends HorizontalScrollView
 {
     /**
      * Allows complete control over the colors drawn in the tab layout. Set with
-     * {@link #setCustomTabColorizer(com.flyn.smartandroid.views.SlidingTabLayout.TabColorizer)}.
+     * {@link #setCustomTabColorizer(SlidingTabLayout.TabColorizer)}.
      */
     public interface TabColorizer
     {
@@ -106,7 +106,7 @@ public class SlidingTabLayout extends HorizontalScrollView
     }
 
     /**
-     * Set the custom {@link com.flyn.smartandroid.views.SlidingTabLayout.TabColorizer} to be used.
+     * Set the custom {@link SlidingTabLayout.TabColorizer} to be used.
      * <p/>
      * If you only require simple custmisation then you can use
      * {@link #setSelectedIndicatorColors(int...)} to achieve

@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.views;
+package com.flyn.smartandroid.views.Observable;
 
 import android.content.Context;
 import android.content.res.TypedArray;

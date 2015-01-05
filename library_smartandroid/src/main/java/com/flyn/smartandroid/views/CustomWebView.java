@@ -17,11 +17,13 @@ import android.widget.TextView;
 import com.flyn.smartandroid.R;
 import com.flyn.smartandroid.app.Application;
 import com.flyn.smartandroid.util.NetWorkUtil;
+import com.flyn.smartandroid.views.Observable.ObservableScrollViewCallbacks;
+import com.flyn.smartandroid.views.Observable.ObservableWebView;
 
 public class CustomWebView extends FrameLayout
 {
     private WebViewToolBar    webViewToolBar;
-    private ScrollableWebView mWebView;
+    private ObservableWebView mWebView;
     private TextView          tv_reload;
     private LinearLayout      ll_nonet;
     private String            mUrl;
@@ -57,7 +59,7 @@ public class CustomWebView extends FrameLayout
         this.webViewListener = webViewListener;
     }
 
-    public ScrollableWebView getWebView()
+    public ObservableWebView getWebView()
     {
         return mWebView;
     }
@@ -73,7 +75,7 @@ public class CustomWebView extends FrameLayout
         view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         addView(view);
 
-        mWebView = (ScrollableWebView) findViewById(R.id.wv_content);
+        mWebView = (ObservableWebView) findViewById(R.id.wv_content);
         webViewToolBar = (WebViewToolBar) findViewById(R.id.webview_toolbar);
         webViewToolBar.setWebView(mWebView);
         tv_reload = (TextView) findViewById(R.id.tv_reload);
