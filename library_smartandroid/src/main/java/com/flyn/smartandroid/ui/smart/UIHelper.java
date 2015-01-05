@@ -46,6 +46,7 @@ public class UIHelper
     {
         hiddenLoadingDialog();
         hiddenDialogFragment();
+        dismissDialog();
     }
 
     public void onSaveInstanceState(Bundle outState)
@@ -119,6 +120,14 @@ public class UIHelper
     public void setDefaultLoadingDialogFragment(Class<? extends DialogFragment> clz)
     {
 
+    }
+
+    public void showDialog()
+    {
+        if (mDialog != null && !mDialog.isShowing())
+        {
+            mDialog.show();
+        }
     }
 
     public void dismissDialog()
