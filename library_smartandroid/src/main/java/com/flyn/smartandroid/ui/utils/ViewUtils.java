@@ -13,6 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.flyn.smartandroid.util.VersionCheckUtils;
+
 import java.lang.reflect.Field;
 
 public class ViewUtils
@@ -188,4 +190,15 @@ public class ViewUtils
         view.setBackgroundColor(a + rgb);
     }
 
+
+    public static void setBackground(View view, Drawable background)
+    {
+        if (VersionCheckUtils.hasFroyo())
+        {
+            view.setBackground(background);
+        } else
+        {
+            view.setBackgroundDrawable(background);
+        }
+    }
 }

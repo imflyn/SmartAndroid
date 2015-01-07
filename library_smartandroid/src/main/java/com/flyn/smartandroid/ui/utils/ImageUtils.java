@@ -3,6 +3,7 @@ package com.flyn.smartandroid.ui.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -16,6 +17,9 @@ import android.graphics.RectF;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
+
+import java.io.IOException;
 
 /**
  * @Title ImageUtils
@@ -269,5 +273,65 @@ public class ImageUtils
             resized = (int) (maxSecondary / ratio);
         }
         return resized;
+    }
+
+    /**
+     * 获得图片的角度
+     *
+     * @param path
+     * @return
+     */
+    public static int readPictureDegree(String path)
+    {
+        int degree = 0;
+        try
+        {
+            ExifInterface exifInterface = new ExifInterface(path);
+            int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            switch (orientation)
+            {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    degree = 90;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    degree = 180;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    degree = 270;
+                    break;
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return degree;
+    }
+
+    /**
+     * 计算缩放比例
+     *
+     * @param options
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight)
+    {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth)
+        {
+            if (width > height)
+            {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
+            } else
+            {
+                inSampleSize = Math.round((float) height / (float) reqHeight);
+            }
+        }
+        return inSampleSize;
     }
 }
