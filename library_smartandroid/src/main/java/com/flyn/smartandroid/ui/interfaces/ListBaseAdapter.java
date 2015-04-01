@@ -77,7 +77,7 @@ public abstract class ListBaseAdapter<T> extends android.widget.BaseAdapter
 
     public synchronized void removeAll(List<T> items)
     {
-        this.data.remove(items);
+        this.data.removeAll(items);
         notifyDataSetChanged();
     }
 
