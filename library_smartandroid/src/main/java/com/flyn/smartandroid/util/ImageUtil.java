@@ -21,16 +21,16 @@ import android.graphics.drawable.BitmapDrawable;
 
 /**
  * @Title ImageUtils
- * @Description ´¦ÀíÍ¼Æ¬µÄ¹¤¾ßÀà.
+ * @Description å¤„ç†å›¾ç‰‡çš„å·¥å…·ç±».
  */
 public class ImageUtil {
     private static float[] carray = new float[20];
 
     /**
-     * Í¼Æ¬È¥É«,·µ»Ø»Ò¶ÈÍ¼Æ¬
+     * å›¾ç‰‡å»è‰²,è¿”å›ç°åº¦å›¾ç‰‡
      *
-     * @param bmpOriginal ´«ÈëµÄÍ¼Æ¬
-     * @return È¥É«ºóµÄÍ¼Æ¬
+     * @param bmpOriginal ä¼ å…¥çš„å›¾ç‰‡
+     * @return å»è‰²åçš„å›¾ç‰‡
      */
     public static Bitmap toGrayscale(Bitmap bmpOriginal) {
 
@@ -52,7 +52,7 @@ public class ImageUtil {
     }
 
     public static void getValueSaturation() {
-        // ¸ß±¥ºÍ¶È
+        // é«˜é¥±å’Œåº¦
         carray[0] = 5;
         carray[1] = 0;
         carray[2] = 0;
@@ -78,7 +78,7 @@ public class ImageUtil {
 
     private static void getValueBlackAndWhite() {
 
-        // ºÚ°×
+        // é»‘ç™½
         carray[0] = (float) 0.308;
         carray[1] = (float) 0.609;
         carray[2] = (float) 0.082;
@@ -103,22 +103,22 @@ public class ImageUtil {
 
     /***/
     /**
-     * È¥É«Í¬Ê±¼ÓÔ²½Ç
+     * å»è‰²åŒæ—¶åŠ åœ†è§’
      *
-     * @param bmpOriginal Ô­Í¼
-     * @param pixels      Ô²½Ç»¡¶È
-     * @return ĞŞ¸ÄºóµÄÍ¼Æ¬
+     * @param bmpOriginal åŸå›¾
+     * @param pixels      åœ†è§’å¼§åº¦
+     * @return ä¿®æ”¹åçš„å›¾ç‰‡
      */
     public static Bitmap toGrayscale(Bitmap bmpOriginal, int pixels) {
         return toRoundCorner(toGrayscale(bmpOriginal), pixels);
     }
 
     /**
-     * °ÑÍ¼Æ¬±ä³ÉÔ²½Ç
+     * æŠŠå›¾ç‰‡å˜æˆåœ†è§’
      *
-     * @param bitmap ĞèÒªĞŞ¸ÄµÄÍ¼Æ¬
-     * @param pixels Ô²½ÇµÄ»¡¶È
-     * @return Ô²½ÇÍ¼Æ¬
+     * @param bitmap éœ€è¦ä¿®æ”¹çš„å›¾ç‰‡
+     * @param pixels åœ†è§’çš„å¼§åº¦
+     * @return åœ†è§’å›¾ç‰‡
      */
     public static Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
 
@@ -143,7 +143,7 @@ public class ImageUtil {
     }
 
     /**
-     * Ê¹Ô²½Ç¹¦ÄÜÖ§³ÖBitampDrawable
+     * ä½¿åœ†è§’åŠŸèƒ½æ”¯æŒBitampDrawable
      *
      * @param bitmapDrawable
      * @param pixels
@@ -156,7 +156,7 @@ public class ImageUtil {
     }
 
     /**
-     * Éú³ÉÍ¼Æ¬µ¹Ó°
+     * ç”Ÿæˆå›¾ç‰‡å€’å½±
      *
      * @param originalImage
      * @return
@@ -426,13 +426,13 @@ public class ImageUtil {
     }
 
     public static Bitmap bitmap2Gray(Bitmap bmSrc) {
-        // µÃµ½Í¼Æ¬µÄ³¤ºÍ¿í
+        // å¾—åˆ°å›¾ç‰‡çš„é•¿å’Œå®½
         int width = bmSrc.getWidth();
         int height = bmSrc.getHeight();
-        // ´´½¨Ä¿±ê»Ò¶ÈÍ¼Ïñ
+        // åˆ›å»ºç›®æ ‡ç°åº¦å›¾åƒ
         Bitmap bmpGray = null;
         bmpGray = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-        // ´´½¨»­²¼
+        // åˆ›å»ºç”»å¸ƒ
         Canvas c = new Canvas(bmpGray);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
@@ -447,20 +447,20 @@ public class ImageUtil {
         Bitmap bmp = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
         int brightness = 80 - 127;
         ColorMatrix cMatrix = new ColorMatrix();
-        cMatrix.set(new float[]{1, 0, 0, 0, brightness, 0, 1, 0, 0, brightness,// ¸Ä±äÁÁ¶È
+        cMatrix.set(new float[]{1, 0, 0, 0, brightness, 0, 1, 0, 0, brightness,// æ”¹å˜äº®åº¦
                 0, 0, 1, 0, brightness, 0, 0, 0, 1, 0});
 
         Paint paint = new Paint();
         paint.setColorFilter(new ColorMatrixColorFilter(cMatrix));
 
         Canvas canvas = new Canvas(bmp);
-        // ÔÚCanvasÉÏ»æÖÆÒ»¸öÒÑ¾­´æÔÚµÄBitmap¡£ÕâÑù£¬dstBitmap¾ÍºÍsrcBitmapÒ»ÃşÒ»ÑùÁË
+        // åœ¨Canvasä¸Šç»˜åˆ¶ä¸€ä¸ªå·²ç»å­˜åœ¨çš„Bitmapã€‚è¿™æ ·ï¼ŒdstBitmapå°±å’ŒsrcBitmapä¸€æ‘¸ä¸€æ ·äº†
         canvas.drawBitmap(image, 0, 0, paint);
         return bmp;
     }
 
     public static Bitmap convertToBlur(Bitmap bmp) {
-        // ¸ßË¹¾ØÕó
+        // é«˜æ–¯çŸ©é˜µ
         int[] gauss = new int[]{1, 2, 1, 2, 4, 2, 1, 2, 1};
         int width = bmp.getWidth();
         int height = bmp.getHeight();
@@ -472,7 +472,7 @@ public class ImageUtil {
         int newR = 0;
         int newG = 0;
         int newB = 0;
-        int delta = 30; // ÖµÔ½Ğ¡Í¼Æ¬»áÔ½ÁÁ£¬Ô½´óÔòÔ½°µ
+        int delta = 30; // å€¼è¶Šå°å›¾ç‰‡ä¼šè¶Šäº®ï¼Œè¶Šå¤§åˆ™è¶Šæš—
         int idx = 0;
         int[] pixels = new int[width * height];
         bmp.getPixels(pixels, 0, width, 0, 0, width, height);
