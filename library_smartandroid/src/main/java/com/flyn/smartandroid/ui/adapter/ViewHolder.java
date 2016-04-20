@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.ui.interfaces;
+package com.flyn.smartandroid.ui.adapter;
 
 import android.util.SparseArray;
 import android.view.View;

@@ -1,11 +1,11 @@
-package com.flyn.smartandroid.ui.smart;
+package com.flyn.smartandroid.ui;
 
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -15,8 +15,7 @@ import com.flyn.smartandroid.app.manager.ActivityManager;
 
 import java.lang.reflect.Constructor;
 
-public abstract class SmartActivity extends FragmentActivity
-{
+public abstract class SmartActivity extends AppCompatActivity {
 
     protected Activity mContext;
     protected Handler mHandler;
@@ -25,8 +24,7 @@ public abstract class SmartActivity extends FragmentActivity
     protected View mRootView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         ActivityManager.getInstance().addActivity(this);
         super.onCreate(savedInstanceState);
@@ -46,79 +44,68 @@ public abstract class SmartActivity extends FragmentActivity
 
     }
 
-    private void setContentView()
-    {
+    private void setContentView() {
         ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
         mRootView = getLayoutInflater().inflate(layoutId(), viewGroup, false);
         setContentView(mRootView);
     }
 
-    private void initUIPresenter()
-    {
+    private void initUIPresenter() {
         Class<? extends UIPresenter> clz = getUIPresenterClz();
 
-        try
-        {
+        try {
             Constructor<? extends UIPresenter> constructor = clz.getDeclaredConstructor(View.class);
             constructor.setAccessible(true);
             uiPresenter = constructor.newInstance(mRootView);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState)
-    {
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         this.uiPresenter.onSaveInstanceState(outState);
         mUIHelper.onSaveInstanceState(outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState)
-    {
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         this.uiPresenter.onRestoreInstanceState(savedInstanceState);
         mUIHelper.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
         this.uiPresenter.onStart();
         mUIHelper.onStart();
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         this.uiPresenter.onResume();
         mUIHelper.onResume();
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         this.uiPresenter.onPause();
         mUIHelper.onPause();
     }
 
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         super.onStop();
         this.uiPresenter.onStop();
         mUIHelper.onStop();
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         ActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
         this.uiPresenter.onDestroy();
@@ -126,8 +113,7 @@ public abstract class SmartActivity extends FragmentActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         this.uiPresenter.onConfigurationChanged(newConfig);
         mUIHelper.onConfigurationChanged(newConfig);
@@ -135,18 +121,15 @@ public abstract class SmartActivity extends FragmentActivity
 
     protected abstract int layoutId();
 
-    protected void findViews()
-    {
+    protected void findViews() {
         uiPresenter.findViews();
     }
 
-    protected void initView(Bundle savedInstanceState)
-    {
+    protected void initView(Bundle savedInstanceState) {
         uiPresenter.initView(savedInstanceState);
     }
 
-    protected void setListener()
-    {
+    protected void setListener() {
         uiPresenter.setListener();
     }
 
@@ -154,8 +137,7 @@ public abstract class SmartActivity extends FragmentActivity
 
     protected abstract UIPresenter getUiPresenter();
 
-    protected Class<? extends DialogFragment> defaultLoadingDialog()
-    {
+    protected Class<? extends DialogFragment> defaultLoadingDialog() {
         return null;
     }
 }

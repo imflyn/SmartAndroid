@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.ui.smart;
+package com.flyn.smartandroid.ui;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -127,9 +127,9 @@ public abstract class UIPresenter
 
     public ActionBar getSupportActionBar()
     {
-        if (mContext instanceof ActionBarActivity)
+        if (mContext instanceof AppCompatActivity)
         {
-            return ((ActionBarActivity) mContext).getSupportActionBar();
+            return ((AppCompatActivity) mContext).getSupportActionBar();
         }
         return null;
     }

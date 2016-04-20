@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.ui.smart;
+package com.flyn.smartandroid.ui;
 
 import android.app.Activity;
 import android.content.res.Configuration;

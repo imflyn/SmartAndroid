@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.flyn.smartandroid.services;
+package com.flyn.smartandroid.async;
 
 import android.os.Handler;
 import android.os.Message;

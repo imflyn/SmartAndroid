@@ -1,4 +1,4 @@
-package com.flyn.smartandroid.services;
+package com.flyn.smartandroid.async;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
