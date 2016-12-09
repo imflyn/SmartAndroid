@@ -10,7 +10,7 @@
         android:layout_weight="1"
         android:background="@null">
 
-        <com.flyn.smartandroid.views.Observable.ObservableWebView
+        <WebView
             android:id="@+id/wv_content"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"/>
